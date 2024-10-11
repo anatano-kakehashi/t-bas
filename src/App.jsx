@@ -20,12 +20,24 @@ export default function App() {
         <Routes>
           <Route exact path="/" element = {<HomePage language = "JP"/>} />
           <Route exact path="/eng" element = {<HomePage language = "ENG"/>} />
-          <Route path="/whyLearn" element = {<WhyLearnPage language = "JP"/>} />
-          <Route path="/eng/whyLearn" element = {<WhyLearnPage language = "ENG"/>} />
-          <Route path="/aboutMe" element = {<AboutPage language = "JP"/>} />
-          <Route path="/eng/aboutMe" element = {<AboutPage language = "ENG"/>} />
-          <Route path="/service" element = {<ServicesPage language = "JP"/>} />
-          <Route path="/eng/service" element = {<ServicesPage language = "ENG"/>} />
+          <Route path="/aboutTbas" element = {<AboutPage language = "JP"/>} />
+          <Route path="/eng/aboutTbas" element = {<AboutPage language = "ENG"/>} />
+          <Route path="/inPerson" element = {<AboutPage language = "JP"/>} />
+          <Route path="/eng/inPerson" element = {<AboutPage language = "ENG"/>} />
+          <Route path="/online" element = {<AboutPage language = "JP"/>} />
+          <Route path="/eng/online" element = {<AboutPage language = "ENG"/>} />
+          <Route path="/tutors" element = {<ServicesPage language = "JP"/>} />
+          <Route path="/eng/tutors" element = {<ServicesPage language = "ENG"/>} />
+          <Route path="/feedback" element = {<ServicesPage language = "JP"/>} />
+          <Route path="/eng/feedback" element = {<ServicesPage language = "ENG"/>} />
+          <Route path="/faq" element = {<ServicesPage language = "JP"/>} />
+          <Route path="/eng/faq" element = {<ServicesPage language = "ENG"/>} />
+          <Route path="/access" element = {<ServicesPage language = "JP"/>} />
+          <Route path="/eng/access" element = {<ServicesPage language = "ENG"/>} />
+          <Route path="/access" element = {<ServicesPage language = "JP"/>} />
+          <Route path="/eng/access" element = {<ServicesPage language = "ENG"/>} />
+          <Route path="/contact" element = {<ServicesPage language = "JP"/>} />
+          <Route path="/eng/contact" element = {<ServicesPage language = "ENG"/>} />
         </Routes>
       </Router>
     </>

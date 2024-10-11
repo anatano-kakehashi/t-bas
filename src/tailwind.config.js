@@ -31,6 +31,19 @@ module.exports = {
       black: '#000',
       white: '#fff',
 
+      tbasMain: {
+        purple900: '#552F72',
+        purple700: '#76578D',
+        purple500: '#C8BCD1',
+        purple300: '#D9D9D9',
+
+        backgroundPurple: '#F3F0F5',
+        orange: '#F2A085',
+        lightBlue: '#ACDEF5',
+        red : '#C92422',
+        gray: '#EBEBEB',
+      },
+
       primary: {
         100: '#a273ff',
         200: '#935bff',
@@ -42,7 +55,6 @@ module.exports = {
         800: '#460fb3',
         900: '#3c0d99',
       },
-
       secondary: {
         100: '#7c8ba1',
         200: '#667892',
@@ -169,6 +181,10 @@ module.exports = {
     },
     spacing: {
       px: '1px',
+      '-4': '-1rem',
+      '-3': '-0.75rem',
+      '-2': '-0.5rem',
+      '-1': '-0.25rem',
       '0': '0',
       '1': '0.25rem',
       '2': '0.5rem',
@@ -288,9 +304,11 @@ module.exports = {
     fontFamily: {
       openSans: ['"Open Sans"', 'sans-serif'],
       roboto: ['Roboto', 'sans-serif'],
+      YuGothic: ['"Yu Gothic"', 'sans-serif'],
 
       display: ['Inter', 'system-ui'],
       sans: [
+        'YuGothic',
         'system-ui',
         '-apple-system',
         'BlinkMacSystemFont',
@@ -306,7 +324,7 @@ module.exports = {
         '"Noto Color Emoji"',
       ],
       serif: ['Georgia', 'Cambria', '"Times New Roman"', 'Times', 'serif'],
-      mono: ['Menlo', 'Monaco', 'Consolas', '"Liberation Mono"', '"Courier New"', 'monospace'],
+      mono: ['Menlo', 'Monaco', 'Consolas', '"Liberation Mono"', '"Courier New"', 'monospace']
     },
     fontSize: {
       xs: '0.75rem',
@@ -325,6 +343,10 @@ module.exports = {
       '10xl': '6rem',
       '11xl': '6.5rem',
       '12xl': '7rem',
+      '13xl': '7.5rem',
+      '14xl': '8rem',
+      '15xl': '8.5rem',
+      '20xl': '12rem',
     },
     fontWeight: {
       hairline: '100',
@@ -366,7 +388,15 @@ module.exports = {
       screen: '100vh',
     }),
     inset: {
+      '-4': '-1rem',
+      '-3': '-0.75rem',
+      '-2': '-0.5rem',
+      '-1': '-0.25rem',
       '0': '0',
+      '1': '0.25rem',
+      '2': '0.5rem',
+      '3': '0.75rem',
+      '4': '1rem',
       '1/2': '50%',
       auto: 'auto',
     },

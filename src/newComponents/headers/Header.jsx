@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import tw from "twin.macro";
 import styled from "styled-components";
@@ -8,26 +8,30 @@ import useAnimatedNavToggler from "helpers/useAnimatedNavToggler.js";
 
 import { useNavigate, useLocation } from 'react-router-dom';
 
-import logo from "assets/ak-images/logo.svg";
+import logo from "assets/tbas-images/logo/TBAS-purple-logo.svg";
 
 import { ReactComponent as MenuIcon } from "feather-icons/dist/icons/menu.svg";
 import { ReactComponent as CloseIcon } from "feather-icons/dist/icons/x.svg";
 import { ReactComponent as GlobeIcon } from "feather-icons/dist/icons/globe.svg";
+import { ReactComponent as ChevronDownIcon } from "feather-icons/dist/icons/chevron-down.svg";
+
 
 const HeaderComponent = tw.header`
   flex justify-between items-center
-  max-w-screen-xl mx-auto
+  max-w-screen-2xl mx-auto
 `;
 
-const NavLinks = tw.div`inline-block cursor-pointer`;
+const NavLinks = tw.div`inline-block flex cursor-pointer`;
 
 /* hocus: stands for "on hover or focus"
  * hocus:bg-primary-700 will apply the bg-primary-700 class on hover or focus
  */
 const NavLink = tw.a`
-  text-lg my-2 lg:text-lg lg:mx-6 lg:my-0
+  text-lg lg:mx-4 xl:mx-6 my-2 lg:my-0
   font-semibold tracking-wide transition duration-300
-  pb-1 border-b-2 border-transparent hover:border-main-lightBlue hocus:text-main-lightBlue
+  pb-1 border-b-2 border-transparent 
+  text-tbasMain-purple900
+  hocus:text-tbasMain-orange
 `;
 
 const LanguageChangeContainer = tw.div`cursor-pointer w-full m-auto flex justify-end`;
@@ -35,13 +39,17 @@ const LanguageChange = tw(NavLink)`text-main-lightBlue flex items-end`
 
 const LogoLink = styled(NavLink)`
   ${tw`pl-4 pt-4 lg:pl-0 lg:pt-0 cursor-pointer flex items-center font-black border-b-0 text-2xl! ml-0!`};
-
   img {
-    ${tw`w-12 lg:w-20 mr-3`}
+    ${tw`w-40 lg:w-64`}
   }
 `;
-const LogoText = tw.p`text-left text-lg lg:text-2xl font-roboto text-main-blue tracking-[.15em] font-bold`;
-const LogoRedText = tw.span`text-main-red`;
+
+const PrimaryLink = tw(NavLink)`
+  lg:mx-0
+  px-4 py-2 rounded bg-tbasMain-purple900 text-gray-100
+  hocus:bg-tbasMain-orange hocus:text-gray-200 focus:shadow-outline
+  border-b-0
+`;
 
 const MobileNavLinksContainer = tw.nav`flex flex-1 items-center justify-between`;
 const NavToggle = tw.button`
@@ -57,15 +65,34 @@ const MobileNavLinks = motion(styled.div`
 const DesktopNavLinks = tw.nav`
   hidden lg:flex flex-1 justify-between items-center
 `;
-const LgDesktopNav = tw(DesktopNavLinks)`hidden lg:flex lg:flex-wrap lg:pt-8 lg:px-8 xl:px-0 justify-center`;
+const LgDesktopNav = tw(DesktopNavLinks)`hidden lg:flex lg:flex-wrap lg:pt-8 lg:px-0 justify-center`;
+
+const DropdownContainer = tw.div`relative`;
+const Dropdown = tw.div`select-none cursor-pointer hover:border-primary-500 transition-colors duration-300`;
+const DropdownParent = tw.div`flex justify-between items-center`;
+const DropdownParentText = tw.div`text-lg my-2 lg:my-0
+  font-semibold tracking-wide transition duration-300
+  pb-1 border-b-2 border-transparent 
+  text-tbasMain-purple900
+  hocus:text-tbasMain-orange`;
+const DropdownParentToggleIcon = styled(motion.span)`
+  ${tw`ml-2 transition duration-300`}
+  svg {
+    ${tw`w-6 h-6`}
+  }
+`;
+const DropdownLinkContainer = tw(motion.div)`hidden absolute left-0 z-40 font-normal mt-4 text-gray-300 bg-white lg:w-48`;
+const DropdownLink = tw(NavLink)`block lg:mx-0 px-4 py-2 w-full`;
+const DropdownLinks = tw.div`flex flex-wrap cursor-pointer`;
 
 var currPath = "/";
-var engNav = ["Why Learn", "About Me", "Service"];
-var japNav = ["学ぶメリット", "私について", "サービス"];
+var engNav = ["About T-BAS", "Courses", "In Person", "Online", "Teachers", "Feedback", "FAQ", "Access", "Contact"];
+var japNav = ["T-BASとは", "コースについて", "対面レッスン", "オンラインレッスン", "講師紹介", "ご利用者の声", "よくあるご質問", "アクセス", "お問い合わせ・相談"];
 export default function Header(props) {
   const { showNavLinks, animation, toggleNavbar } = useAnimatedNavToggler();
   const navigate = useNavigate();
   let location = useLocation();
+  const [dropdownActive, setDropdownActive] = useState(false);
 
   // currPath = (window.location.hash);
   currPath = (location.pathname);
@@ -102,23 +129,76 @@ export default function Header(props) {
       </LanguageChange>
     </LanguageChangeContainer>
   );
+
+  const aboutMeDropdown = (
+    <DropdownContainer>
+      <Dropdown onClick={() => setDropdownActive(!dropdownActive)}>
+        <DropdownParent>
+          <DropdownParentText>{currNavLink[1]}</DropdownParentText>
+          <DropdownParentToggleIcon
+            variants={{
+              collapsed: { rotate: 0 },
+              open: { rotate: -180 }
+            }}
+            initial="collapsed"
+            animate={dropdownActive ? "open" : "collapsed"}
+            transition={{ duration: 0.02, ease: [0.04, 0.62, 0.23, 0.98] }}
+          >
+            <ChevronDownIcon />
+          </DropdownParentToggleIcon>
+        </DropdownParent>
+        <DropdownLinkContainer
+          variants={{
+            open: { opacity: 1, height: "auto", marginTop: "10px", display: "block" },
+            collapsed: { opacity: 0, height: 0, marginTop: "0px", display: "none" }
+          }}
+          initial="collapsed"
+          animate={dropdownActive ? "open" : "collapsed"}
+          transition={{ duration: 0.3, ease: [0.04, 0.62, 0.23, 0.98] }}
+        >
+          <DropdownLinks>
+            <DropdownLink onClick={() => navigate(currNavPath+"whyLearn")}>{currNavLink[2]}</DropdownLink>
+            <DropdownLink onClick={() => navigate(currNavPath+"")}>{currNavLink[3]}</DropdownLink>
+          </DropdownLinks>
+        </DropdownLinkContainer>
+      </Dropdown>
+    </DropdownContainer>
+  );
+
   const tbasLogoLink = (
     <LogoLink onClick={() => navigate(currNavPath)}>
       <img src={logo} alt="logo" />
-      <LogoText>
-        <LogoRedText>
-          ANATANO
-        </LogoRedText>
-        <br/>
-        KAKEHASHI
-      </LogoText>
     </LogoLink>
   );
   const tbasNavLinks = [
     <NavLinks key = {1}>
       <NavLink onClick={() => navigate(currNavPath+"whyLearn")}>{currNavLink[0]}</NavLink>
-      <NavLink onClick={() => navigate(currNavPath+"aboutMe")}>{currNavLink[1]}</NavLink>
-      <NavLink onClick={() => navigate(currNavPath+"service")}>{currNavLink[2]}</NavLink>
+      {aboutMeDropdown}
+      <NavLink onClick={() => navigate(currNavPath+"service")}>{currNavLink[4]}</NavLink>
+      <NavLink onClick={() => navigate(currNavPath+"service")}>{currNavLink[5]}</NavLink>
+      <NavLink onClick={() => navigate(currNavPath+"service")}>{currNavLink[6]}</NavLink>
+      <NavLink onClick={() => navigate(currNavPath+"service")}>{currNavLink[7]}</NavLink>
+    </NavLinks>,
+    <NavLinks key={2}>
+      <PrimaryLink href="/#">
+        {currNavLink[8]}
+      </PrimaryLink>
+    </NavLinks>
+  ];
+  const tbasMobileNavLinks = [
+    <NavLinks key = {1}>
+      <NavLink onClick={() => navigate(currNavPath+"whyLearn")}>{currNavLink[0]}</NavLink>
+      <NavLink onClick={() => navigate(currNavPath+"whyLearn")}>{currNavLink[2]}</NavLink>
+      <NavLink onClick={() => navigate(currNavPath+"whyLearn")}>{currNavLink[3]}</NavLink>
+      <NavLink onClick={() => navigate(currNavPath+"service")}>{currNavLink[4]}</NavLink>
+      <NavLink onClick={() => navigate(currNavPath+"service")}>{currNavLink[5]}</NavLink>
+      <NavLink onClick={() => navigate(currNavPath+"service")}>{currNavLink[6]}</NavLink>
+      <NavLink onClick={() => navigate(currNavPath+"service")}>{currNavLink[7]}</NavLink>
+    </NavLinks>,
+    <NavLinks key={2}>
+      <PrimaryLink href="/#">
+        {currNavLink[8]}
+      </PrimaryLink>
     </NavLinks>
   ];
 
@@ -135,7 +215,7 @@ export default function Header(props) {
       <MobileNavLinksContainer css={collapseBreakPointCssMap['lg'].mobileNavLinksContainer}>
         {tbasLogoLink}
         <MobileNavLinks initial={{ x: "150%", display: "none" }} animate={animation} css={collapseBreakPointCssMap['lg'].mobileNavLinks}>
-          {tbasNavLinks}
+          {tbasMobileNavLinks}
           <br/>
           {props.language === "JP" ? globeLinkJap : globeLinkEng}
         </MobileNavLinks>

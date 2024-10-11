@@ -3,7 +3,7 @@ import tw from "twin.macro";
 /* ===== define some twin / tailwind css for components ===== */
 
 // Button
-export const PrimaryButton = tw.button`px-8 py-3 font-bold rounded bg-primary-500 text-gray-100 hocus:bg-primary-700 hocus:text-gray-200 focus:shadow-outline focus:outline-none transition duration-300 font-roboto text-sm sm:text-base md:text-lg lg:text-xl`;
+export const PrimaryButton = tw.button`px-8 py-3 font-bold rounded bg-tbasMain-purple900 hocus:bg-tbasMain-orange text-main-white focus:shadow-outline focus:outline-none transition duration-300 font-roboto text-sm sm:text-base md:text-lg lg:text-xl`;
 
 // Headers
 export const SectionHeading = tw.h2`text-4xl sm:text-5xl font-black tracking-wide text-center`
@@ -44,10 +44,10 @@ export const HightlightedText = tw.span`text-primary-500`
 export const MainSectionHeading = tw.h1`text-4xl sm:text-6xl md:text-8xl lg:text-10xl xl:text-12xl font-openSans font-extrabold`;
 export const SubMainSectionHeading = tw.h1`text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-8xl font-openSans font-extrabold`;
 
-export const MainHeading = tw.h1`text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-openSans font-extrabold`;
+export const MainHeading = tw.h1`text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-YuGothic font-extrabold`;
 export const MainHeading2 = tw.h1`text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-openSans font-extrabold`;
 export const SubMainHeading = tw.h1`text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-openSans font-extrabold`;
-export const MainParagraph = tw.p`font-roboto font-light text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl`;
+export const MainParagraph = tw.p`font-YuGothic font-light text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl`;
 
 export const LargerMainParagraph = tw.p`font-roboto font-light text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl`;
 
