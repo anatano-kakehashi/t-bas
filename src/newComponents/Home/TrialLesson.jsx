@@ -10,19 +10,19 @@ import {
     SubMainHeading as SubMainHeadingTemplate,
     MainParagraph as MainParagraphTemplate,
     PrimaryButton as PrimaryButtonBase,
-    Container as BaseContainer
+    ContentFormatted as BaseContainer
   } from "assets/styles/TailwindComponents.jsx";
 
 import { home_trialLessons } from "assets/tbas-data/TBas_Info.jsx";
 import background from "assets/tbas-images/background/classroom.png";
 import { ReactComponent as EmailIcon } from "feather-icons/dist/icons/mail.svg";
 
-const Container = tw(BaseContainer)`py-12 lg:px-32`;
+const Container = tw(BaseContainer)`py-12`;
 
-const Row = tw.div`flex flex-col md:flex-row justify-between items-center lg:my-12 max-w-screen-2xl mx-auto shadow-lg h-96 rounded-3xl `;
+const Row = tw.div`flex flex-col md:flex-row justify-between items-center lg:my-12 mx-auto shadow-lg h-144 rounded-3xl `;
 
 const TextColumn = tw.div`
-w-1/2 h-full flex flex-col bg-main-white py-16 pl-16 rounded-l-3xl`;
+w-1/2 h-full flex flex-col justify-center bg-main-white py-16 pl-16 rounded-l-3xl`;
 
 const Heading = tw(SubMainHeadingTemplate)`text-left text-main-black lg:tracking-[3.6px]`;
 const Description = tw(MainParagraphTemplate)`mt-4 text-main-black font-roboto font-medium lg:max-w-lg xl:max-w-xl`;

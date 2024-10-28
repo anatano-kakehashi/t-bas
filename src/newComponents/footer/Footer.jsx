@@ -5,16 +5,14 @@ import styled from "styled-components";
 import { useNavigate, useLocation } from 'react-router-dom';
 
 /* ========= importing assets ============ */
-import { Container as ContainerBase
+import { ContentWithVerticalPadding as ContainerBase
 } from "assets/styles/TailwindComponents.jsx";
 
-import logo from "assets/ak-images/logo.svg";
-import { ReactComponent as MailIcon } from "feather-icons/dist/icons/mail.svg";
+import logo from "assets/tbas-images/logo/TBAS-white-logo.svg";
 
-// import { ReactComponent as MailIcon } from "assets/treact-images/email-newsletter-icon.svg";
-import { ReactComponent as YoutubeIcon } from "assets/treact-images/youtube-icon.svg";
+import { header_footer } from "assets/tbas-data/TBas_Info.jsx";
 
-const NavLinks = tw.div`inline-block cursor-pointer pt-4`;
+const NavLinks = tw.div`inline-block cursor-pointer pt-4 text-main-white`;
 
 const NavLink = tw.a`
   text-sm lg:text-lg mx-2 lg:mx-6 my-2 lg:my-0
@@ -22,34 +20,29 @@ const NavLink = tw.a`
   pb-1 border-b-2 border-transparent hover:border-main-lightBlue hocus:text-main-lightBlue
 `;
 
-const Container = tw(ContainerBase)`bg-main-white text-main-black -mx-8 -mb-8`
-const Content = tw.div`max-w-screen-xl mx-auto py-16`;
+const Container = tw(ContainerBase)`bg-tbasMain-purple700 text-main-black -mx-8 -mb-8`
+const Content = tw.div`max-w-screen-2xl mx-auto py-16`;
 
-const Row = tw.div`flex items-center justify-center flex-col px-8`
+const Row = tw.div`flex items-center justify-center flex-col`
 
 const LogoContainer = tw.div`flex items-center justify-center md:justify-start`;
+const LogoRow = tw.div`flex items-center justify-center flex-row pb-10`
+
+const LogoImageContainer = tw.div`w-2/5 flex items-center justify-center pr-8`;
 const LogoLink = styled(NavLink)`
   ${tw`cursor-pointer flex items-center font-black border-b-0 text-2xl! ml-0!`};
 
   img {
-    ${tw`w-12 lg:w-20 mr-3`}
+    ${tw`w-80 lg:w-96`}
   }
 `;
-const LogoText = tw.h5`ml-2 text-lg lg:text-2xl font-roboto text-main-blue tracking-[.15em] font-bold`;
-const LogoRedText = tw.span`text-main-red`;
-
-const SocialLinksContainer = tw.div`mt-6`;
-const SocialLink = styled.a`
-  ${tw`rounded-full p-3 cursor-pointer inline-block bg-main-blue text-gray-100 hover:text-gray-500 transition duration-300 mx-4`}
-  svg {
-    ${tw`w-5 h-5`}
-  }
-`;
-const CopyrightContainer = tw(ContainerBase)`bg-main-lighterBlue text-main-black -mx-8`
-const CopyrightContent = tw.div`max-w-screen-xl mx-auto py-8`;
-const CopyrightText = tw.p`text-center font-extrabold tracking-wide text-xs lg:text-sm text-main-black`;
+const LogoTextContainer = tw.div`flex flex-col w-3/5`;
+const LogoText = tw.h5`pl-4 pt-6 text-lg lg:text-xl font-roboto text-main-white tracking-[.15em] font-medium`;
+const TopLogoText = tw(LogoText)`pt-0`
+const LogoLightText = tw(LogoText)`pt-2 font-light text-base lg:text-lg`;
 
 var currPath = "/";
+var currInfo = header_footer[0];
 export default function Footer(props) {
   const navigate = useNavigate();
 
@@ -59,85 +52,62 @@ export default function Footer(props) {
   // currPath = window.location.hash;
   let pathArr = currPath.split("/");
   pathArr = pathArr.slice(1);
+  let currNavPath = "/";
   if(pathArr[0] === "eng"){
     pathArr = pathArr.slice(1);
+    currNavPath = "/eng/";
+    currInfo = header_footer[1];
   }
   currPath = pathArr.join("/");
 
-  const tbasLogoLinkJap = (
-    <LogoLink onClick={() => navigate("/")}>
-      <img src={logo} alt="logo" />
-      <LogoText>
-        <LogoRedText>
-          ANATANO
-        </LogoRedText>
-        <br/>
-        KAKEHASHI
-      </LogoText>
-    </LogoLink>
+  const tbasLogoLink = (
+    <LogoRow>
+      <LogoImageContainer>
+        <LogoLink onClick={() => navigate(currNavPath)}>
+          <img src={logo} alt="logo" />
+        </LogoLink>
+      </LogoImageContainer>
+      
+      <LogoTextContainer>
+        <TopLogoText>
+          {currInfo.address}
+        </TopLogoText>
+        <LogoText>
+          {currInfo.phone}
+        </LogoText>
+        <LogoLightText>
+          {currInfo.hours}
+        </LogoLightText>
+        <LogoText>
+          {currInfo.email}
+        </LogoText>
+      </LogoTextContainer>
+    </LogoRow>
   );
 
-  const tbasLogoLinkEng = (
-    <LogoLink onClick={() => navigate("/eng/")}>
-      <img src={logo} alt="logo" />
-      <LogoText>
-        <LogoRedText>
-          ANATANO
-        </LogoRedText>
-        <br/>
-        KAKEHASHI
-      </LogoText>
-    </LogoLink>
-  );
-
-  const tbasNavLinksJap = [
+  const tbasNavLinks = [
     <NavLinks key = {1}>
-      <NavLink onClick={() => navigate("/whyLearn")}>何故プログラミング</NavLink>
-      <NavLink onClick={() => navigate("/aboutMe")}>私について</NavLink>
-      <NavLink onClick={() => navigate("/service")}>サービス</NavLink>
-    </NavLinks>
-  ];
-  const tbasNavLinksEng = [
-    <NavLinks key = {1}>
-      <NavLink onClick={() => navigate("/eng/whyLearn")}>Why Learn</NavLink>
-      <NavLink onClick={() => navigate("/eng/aboutMe")}>About Me</NavLink>
-      <NavLink onClick={() => navigate("/eng/service")}>Service</NavLink>
+      <NavLink onClick={() => navigate(currNavPath+currInfo.endpoints[0])}>{currInfo.links[0]}</NavLink>
+      <NavLink onClick={() => navigate(currNavPath+currInfo.endpoints[1])}>{currInfo.links[2]}</NavLink>
+      <NavLink onClick={() => navigate(currNavPath+currInfo.endpoints[2])}>{currInfo.links[3]}</NavLink>
+      <NavLink onClick={() => navigate(currNavPath+currInfo.endpoints[3])}>{currInfo.links[4]}</NavLink>
+      <NavLink onClick={() => navigate(currNavPath+currInfo.endpoints[4])}>{currInfo.links[5]}</NavLink>
+      <NavLink onClick={() => navigate(currNavPath+currInfo.endpoints[5])}>{currInfo.links[6]}</NavLink>
+      <NavLink onClick={() => navigate(currNavPath+currInfo.endpoints[6])}>{currInfo.links[7]}</NavLink>
+      <NavLink onClick={() => navigate(currNavPath+currInfo.endpoints[7])}>{currInfo.links[8]}</NavLink>
     </NavLinks>
   ];
 
   return (
-    <>
-      <Container>
-        <Content>
-          <Row>
-            <LogoContainer>
-              {props.language === "JP" ? tbasLogoLinkJap : tbasLogoLinkEng}
-            </LogoContainer>
-            {props.language === "JP" ? tbasNavLinksJap : tbasNavLinksEng}
-            <SocialLinksContainer>
-              <SocialLink href="mailto:anatano.koki@gmail.com">
-                <MailIcon />
-              </SocialLink>
-              <SocialLink href="https://youtube.com" target="_blank">
-                <YoutubeIcon />
-              </SocialLink>
-              {/* <SocialLink href="https://twitter.com">
-                <TwitterIcon />
-              </SocialLink> */}
-            </SocialLinksContainer>
-          </Row>
-        </Content>
-      </Container>
-      <CopyrightContainer>
-        <CopyrightContent>
-          <Row>
-            <CopyrightText>
-              Copyright &copy; 2020 あなたの架け橋 All Rights Reserved.
-            </CopyrightText>
-          </Row>
-        </CopyrightContent>
-      </CopyrightContainer>
-    </>
-   
+    <Container>
+      <Content>
+        <Row>
+          <LogoContainer>
+            {tbasLogoLink}
+          </LogoContainer>
+          {tbasNavLinks}
+        </Row>
+      </Content>
+    </Container>
   );
 };

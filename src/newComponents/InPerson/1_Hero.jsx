@@ -6,11 +6,11 @@ import { css } from "styled-components/macro"; //eslint-disable-line
 /* ========= importing assets ============ */
 import {MainHeading as HeadingTitleTemplate, 
     Container as ContainerTemplate,
-    Content2Xl
+    ContentFormatted
   } from "assets/styles/TailwindComponents.jsx";
 
 /* ======== importing some data for text =========== */
-import { inPerson_lessons } from "assets/tbas-data/TBas_Info.jsx";
+import { lessons } from "assets/tbas-data/TBas_Info.jsx";
 
 import background from "assets/tbas-images/background/classroom.png";
 
@@ -28,24 +28,24 @@ span {
 }
 `;
 
-var currInfo = inPerson_lessons[0];
+var currInfo = lessons[0];
 export default function WhatCS(props) {
     if(props.language === "ENG"){
-        currInfo = inPerson_lessons[1];
+        currInfo = lessons[1];
     }
 
     return (
-        <Content2Xl>
+        <ContentFormatted>
             <br/>
             <Container imageSrc={background}>
                 <HeroContainer>
                     <Content>
                         <Heading>
-                            {currInfo.Heading}
+                            {currInfo.InPersonHeading}
                         </Heading>
                     </Content>
                 </HeroContainer>
             </Container>
-        </Content2Xl>
+        </ContentFormatted>
     );
 };

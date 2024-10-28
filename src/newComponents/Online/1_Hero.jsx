@@ -6,13 +6,13 @@ import { css } from "styled-components/macro"; //eslint-disable-line
 /* ========= importing assets ============ */
 import {MainHeading as HeadingTitleTemplate, 
     Container as ContainerTemplate,
-    Content2Xl
+    ContentFormatted
   } from "assets/styles/TailwindComponents.jsx";
 
 /* ======== importing some data for text =========== */
-import { inPerson_lessons } from "assets/tbas-data/TBas_Info.jsx";
+import { lessons } from "assets/tbas-data/TBas_Info.jsx";
 
-import background from "assets/tbas-images/background/classroom.png";
+import background from "assets/tbas-images/background/laptop.jpeg";
 
 const Container = styled(ContainerTemplate)(props => [
     `background-image: url("${props.imageSrc}");`,
@@ -28,24 +28,25 @@ span {
 }
 `;
 
-var currInfo = inPerson_lessons[0];
+var currInfo = lessons[0];
 export default function WhatCS(props) {
     if(props.language === "ENG"){
-        currInfo = inPerson_lessons[1];
+        currInfo = lessons[1];
     }
 
     return (
-        <Content2Xl>
+        <ContentFormatted>
             <br/>
             <Container imageSrc={background}>
                 <HeroContainer>
                     <Content>
                         <Heading>
-                            {currInfo.Heading}
+                            {currInfo.OnlineHeading}
                         </Heading>
                     </Content>
                 </HeroContainer>
             </Container>
-        </Content2Xl>
+            <br /> 
+        </ContentFormatted>
     );
 };

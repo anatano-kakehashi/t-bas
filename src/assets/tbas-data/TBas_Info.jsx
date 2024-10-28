@@ -7,7 +7,32 @@ import skill2 from "assets/ak-images/skill/skill2.png";
 import skill3 from "assets/ak-images/skill/skill3.png";
 import skill4 from "assets/ak-images/skill/skill4.png";
 
+
+import teach1 from "assets/tbas-images/courses/teach-1.jpeg";
+import teach2 from "assets/tbas-images/courses/teach-2.jpeg";
+import walk from "assets/tbas-images/courses/walk.jpeg";
+import stats from "assets/tbas-images/courses/stats.jpeg";
+import teacher1 from "assets/tbas-images/courses/teacher-1.jpeg";
+import teachers from "assets/tbas-images/courses/teachers.png";
+import online from "assets/tbas-images/courses/online.jpeg";
+import hand from "assets/tbas-images/courses/hand.jpeg";
+
 // home page related information
+
+export const header_footer = [
+  {
+    links: ["T-BASとは", "コースについて", "対面レッスン", "オンラインレッスン", "講師紹介", "ご利用者の声", "よくあるご質問", "アクセス", "お問い合わせ・相談"],
+    endpoints:["aboutTbas", "inPerson", "online", "tutors", "feedback", "faq", "access", "contact"],
+    address: "〒194-0041 東京都町田市玉川学園 2-11-22高橋ビル301",
+    phone: "TEL/FAX：042-851-8680",
+    hours: "電話受付時間：15:00-19:00",
+    email: "メール：tbastamagawa@gmail.com"
+  },
+  {
+    links: ["About T-BAS", "Courses", "In Person", "Online", "Teachers", "Feedback", "FAQ", "Access", "Contact"],
+    endpoints:["aboutTbas", "inPerson", "online", "tutors", "feedback", "faq", "access", "contact"]
+  }
+]
 
 export const home_hero = [
   {
@@ -166,7 +191,169 @@ export const home_testimonials = [
   {
 
   }
+];
+
+
+export const tutors_list = [
+  {
+    heading: "講師紹介",
+    tutors: [
+      {
+        name: "Teacher _",
+        education: [
+          "上智大学経済学部",
+          "玉川IB卒（IBDP取得済）"
+        ],
+        subjects: [
+          "EP", "MYP", "DP"
+        ],
+        comment: "私は英語が決して得意ではなかった状態でIBコースに進学しましたが、最終的にはDPスコアをしっかりと取得することができました。この経験が生徒さんのIBライフに役立てられるよう、お手伝いさせていただければと思います。私個人的な意見ではありますが、英語ができなくてもIBは努力次第で自分自身の成長とともにしっかりと結果を出すことができます！"
+      },
+      {
+        name: "Teacher _",
+        education: [
+          "上智大学経済学部",
+          "玉川IB卒（IBDP取得済）"
+        ],
+        subjects: [
+          "EP", "MYP", "DP"
+        ],
+        comment: "私は英語が決して得意ではなかった状態でIBコースに進学しましたが、最終的にはDPスコアをしっかりと取得することができました。この経験が生徒さんのIBライフに役立てられるよう、お手伝いさせていただければと思います。私個人的な意見ではありますが、英語ができなくてもIBは努力次第で自分自身の成長とともにしっかりと結果を出すことができます！"
+      },
+      {
+        name: "Teacher _",
+        education: [
+          "上智大学経済学部",
+          "玉川IB卒（IBDP取得済）"
+        ],
+        subjects: [
+          "EP", "MYP", "DP"
+        ],
+        comment: "私は英語が決して得意ではなかった状態でIBコースに進学しましたが、最終的にはDPスコアをしっかりと取得することができました。この経験が生徒さんのIBライフに役立てられるよう、お手伝いさせていただければと思います。私個人的な意見ではありますが、英語ができなくてもIBは努力次第で自分自身の成長とともにしっかりと結果を出すことができます！"
+      },
+      {
+        name: "Teacher _",
+        education: [
+          "上智大学経済学部",
+          "玉川IB卒（IBDP取得済）"
+        ],
+        subjects: [
+          "EP", "MYP", "DP"
+        ],
+        comment: "私は英語が決して得意ではなかった状態でIBコースに進学しましたが、最終的にはDPスコアをしっかりと取得することができました。この経験が生徒さんのIBライフに役立てられるよう、お手伝いさせていただければと思います。私個人的な意見ではありますが、英語ができなくてもIBは努力次第で自分自身の成長とともにしっかりと結果を出すことができます！"
+      },
+      {
+        name: "Teacher _",
+        education: [
+          "上智大学経済学部",
+          "玉川IB卒（IBDP取得済）"
+        ],
+        subjects: [
+          "EP", "MYP", "DP"
+        ],
+        comment: "私は英語が決して得意ではなかった状態でIBコースに進学しましたが、最終的にはDPスコアをしっかりと取得することができました。この経験が生徒さんのIBライフに役立てられるよう、お手伝いさせていただければと思います。私個人的な意見ではありますが、英語ができなくてもIBは努力次第で自分自身の成長とともにしっかりと結果を出すことができます！"
+      }
+    ]
+  }
+];
+
+export const tutors_acceptance = [
+  {
+    heading: "講師の大学合格実績",
+    colleges: [
+      "慶應義塾大学文学部",
+      "慶應義塾大学総合政策学部(英語学位）",
+      "早稲田大学国際教養学部",
+      "早稲田社会科学部（英語学位）"
+    ],
+    closer: "他多数"
+  }
 ]
+
+// in person lessons
+
+export const lessons = [
+  {
+    InPersonHeading: "対面レッスン",
+    OnlineHeading: "オンラインレッスン"
+  }
+];
+
+export const inPerson_WhySelect = [
+  {
+    Heading: "選ばれる６つの理由",
+    Reasons:[
+      {
+        SubHeading: "玉川学園IB生にぴったりな塾",
+        Description: "T-BASは玉川学園IBに特化した塾です。優秀な玉川学園IBを卒業した講師が沢山在籍しているので、主要科目の勉強だけでないトータルサポートが可能です。海外IBや他校IB卒の優秀な講師も在籍。幅広い指導の提供をしています。",
+        ImageUrl: teach1
+      },
+      {
+        SubHeading: "マンツーマンの対面レッスン",
+        Description: "何と言っても1:1の対面レッスンに勝るものはありません。T-BASではカフェなどと違い学習環境の整った教室で集中してレッスンが出来ますので自信を持ってお勧めします。",
+        ImageUrl: teach2
+      },
+      {
+        SubHeading: "駅ちか！学校帰りに立ち寄れる",
+        Description: "玉川学園前駅北口から徒歩１分！こんなに便利で落ち着いた学習環境を提供できるのはT-BASだけです！",
+        ImageUrl: walk
+      },
+      {
+        SubHeading: "実績：入塾後のスコアアップ率驚異の98.5%！",
+        Description: "T-BASでは、学習のコツを指導するだけでなく、IB生に必要なタイムマネージメントの力をつけていきます。課題は時間をかけて質の高いものを作り上げるように意識を高めていきます。",
+        ImageUrl: stats
+      },
+      {
+        SubHeading: "サポートがすごい！",
+        Description: "T-BASは塾長がいるので、生徒も保護者も日頃から何でも気軽に相談することが出来ます。自信を持って楽しく学習が出来るようにサポートします。塾長は「保護者＆生徒＆講師」を連携させて質の高い授業を提供するように講師を導きます。また、プレMYP/MYPコースはレッスンの学習報告も閲覧できるので学習状況が分かり保護者も安心です。",
+        ImageUrl: teacher1
+      },
+      {
+        SubHeading: "講師がすごい！",
+        Description: "T-BASの講師はほとんどが早慶上智ICU立教やトロント大学など難関大学に通っています。高いGPAとIBDPハイスコアの成績優秀な講師が在籍しています。彼らは成績を取る方法を熟知しているので是非レッスンでコツを掴んで下さい！",
+        ImageUrl: teachers
+      }
+    ]
+  }
+];
+
+export const online_WhySelect = [
+  {
+    Heading: "選ばれる６つの理由",
+    Reasons:[
+      {
+        SubHeading: "玉川学園IB生にぴったりな塾",
+        Description: "T-BASは玉川学園IBに特化した塾です。優秀な玉川学園IBを卒業した講師が沢山在籍しているので、主要科目の勉強だけでないトータルサポートが可能です。海外IBや他校IB卒の優秀な講師も在籍。幅広い指導の提供をしています。",
+        ImageUrl: teach1
+      },
+      {
+        SubHeading: "マンツーマンレッスン",
+        Description: "1:1で講師と対話しながらのレッスンなのでレッスン最後まで集中することが出来ます。お子様の理解度に合わせた丁寧な指導で成績アップを目指します。",
+        ImageUrl: teach2
+      },
+      {
+        SubHeading: "オンラインレッスン",
+        Description: "自宅で気軽にレッスンが出来ます。家が遠かったり部活や習い事が毎日のようにある方には、負担が少なくコンスタントに学習を進めることが出来るのでお勧めの学習スタイルです。",
+        ImageUrl: online
+      },
+      {
+        SubHeading: "実績：入塾後のスコアアップ率驚異の98.5%！",
+        Description: "T-BASでは、学習のコツを指導するだけでなく、IB生に必要なタイムマネージメントの力をつけていきます。課題は時間をかけて質の高いものを作り上げるように意識を高めていきます。",
+        ImageUrl: stats
+      },
+      {
+        SubHeading: "サポートがすごい！",
+        Description: "T-BASは塾長がいるので、生徒も保護者も日頃から何でも気軽に相談することが出来ます。塾長は「保護者＆生徒＆講師」を連携させて質の高い授業を提供するように講師を導きます。また、レッスンの学習報告も閲覧できるのでお子様の様子が分かり保護者も安心です。",
+        ImageUrl: hand
+      },
+      {
+        SubHeading: "講師がすごい！",
+        Description: "T-BASの講師はほとんどが早慶上智ICU立教やトロント大学など難関大学に通っています。高いGPAとIBDPハイスコアの成績優秀な講師が在籍しています。彼らは成績を取る方法を熟知しているので是非レッスンでコツを掴んで下さい！",
+        ImageUrl: teachers
+      }
+    ]
+  }
+];
 
 // why learn CS related information
 
