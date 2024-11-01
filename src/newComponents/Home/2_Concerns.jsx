@@ -7,10 +7,13 @@ import {css} from "styled-components/macro"; //eslint-disable-line
 import {MainHeading2 as HeadingTitleTemplate, 
     SubMainHeading as SubMainHeadingTemplate,
     MainParagraph as MainParagraphTemplate,
-    Container
+    Container, ContentFormatted
   } from "assets/styles/TailwindComponents.jsx";
 /* ======== importing some data for text =========== */
 import { home_concerns } from "assets/tbas-data/TBas_Info.jsx";
+
+import lady from "assets/tbas-images/home/stressed-lady.svg";
+import boy from "assets/tbas-images/home/stressed-boy.svg";
 
 /* ===== define some twin / tailwind css for components ===== */
 const HeadingTitle = tw(SubMainHeadingTemplate)`font-openSans lg:tracking-[3.6px] font-extrabold text-main-black`;
@@ -22,11 +25,30 @@ const TriangleContainer = tw.div`flex flex-col items-center`;
 const Triangle = tw.div`flex justify-center w-0 h-0 
 border-l-[50px] border-l-transparent
 border-t-[75px] border-tbasMain-purple400
-border-r-[50px] border-r-transparent`
+border-r-[50px] border-r-transparent`;
 const WhiteTriangle = tw.div`flex justify-center w-0 h-0 
 border-l-[50px] border-l-transparent
-border-t-[75px] border-main-white
-border-r-[50px] border-r-transparent`
+border-t-[75px] border-white
+border-r-[50px] border-r-transparent`;
+
+const Row = tw(ContentFormatted)`relative flex flex-row px-12 my-12
+h-128`;
+const ImageColumn = tw.div`w-1/2 h-full mx-20
+rounded-full overflow-hidden 
+border-2 border-black`;
+
+const Image = styled.div(props => [
+    `background-image: url("${props.imageSrc}");`,
+    tw`bg-cover bg-center object-center w-full h-full`
+]);
+
+const TextBoxContainer = tw.div`bg-tbasMain-purple900 text-main-white w-1/6 h-1/6 p-4 absolute rounded-xl`;
+const CenterContainer = tw(TextBoxContainer)`top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-1/5 h-[27.5%]`;
+const LeftTopContainer = tw(TextBoxContainer)`top-0 left-0 w-1/8 h-1/5`;
+const LeftBotContainer = tw(TextBoxContainer)`bottom-0 left-0 w-1/5 h-1/5`;
+const RightTopContainer = tw(TextBoxContainer)`top-0 right-0 transform -translate-x-1 -translate-y-1 w-1/5 h-1/5`;
+const RightBotContainer = tw(TextBoxContainer)`bottom-0 right-0 transform -translate-x-1 -translate-y-1 w-1/5 h-[27.5%]`;
+const TextBox = tw(MainParagraphTemplate)`text-center font-medium`;
 
 var currInfo = home_concerns[0];
 export default function Concerns(props) {
@@ -45,8 +67,43 @@ export default function Concerns(props) {
             <TriangleContainer>
                 <Triangle />
             </TriangleContainer>
+            <Row>
+                <ImageColumn>
+                    <Image imageSrc={lady} />
+                </ImageColumn>
+                <ImageColumn>
+                    <Image imageSrc={boy} />
+                </ImageColumn>
+                <>
+                    <LeftTopContainer>
+                        <TextBox>
+                            {currInfo.Skills[0]}
+                        </TextBox>
+                    </LeftTopContainer>
+                    <LeftBotContainer>
+                        <TextBox>
+                            {currInfo.Skills[1]}
+                        </TextBox>
+                    </LeftBotContainer>
+                    <CenterContainer>
+                        <TextBox>
+                            {currInfo.Skills[2]}
+                        </TextBox>
+                    </CenterContainer>
+                    <RightTopContainer>
+                        <TextBox>
+                            {currInfo.Skills[3]}
+                        </TextBox>
+                    </RightTopContainer>
+                    <RightBotContainer>
+                        <TextBox>
+                            {currInfo.Skills[4]}
+                        </TextBox>
+                    </RightBotContainer>
+                </>
+            </Row>
             
-            <TriangleContainer tw="bg-tbasMain-purple700 pb-16">
+            <TriangleContainer tw="bg-tbasMain-purple700 mt-24 pb-16">
                 <WhiteTriangle />
                 <HeadingTitle tw="pt-10 text-center text-main-white">      
                     {currInfo.Subheading[0]} <br/>

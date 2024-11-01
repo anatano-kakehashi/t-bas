@@ -25,7 +25,7 @@ export default function HomePage(props){
         <StartJourneyHero language = {props.language}/>
 
         <CoursePlans language = {props.language}/>
-        <TestimonialComponent language = {props.language}/>
+        <TestimonialComponent language = {props.language} isHome={true}/>
         <Footer language = {props.language}/>
       </AnimationRevealPage>
     

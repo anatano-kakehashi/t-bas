@@ -46,12 +46,12 @@ const PlanFeatures = styled.div`
   ${tw`flex flex-col -mx-8 px-8 py-8 border-t-2 border-b-2 flex-1`}
 `;
 const FeatureTextContainer = tw.div`flex flex-row`
-const FeatureText = tw(SectionDescriptionBase)`font-medium text-gray-600 font-thin w-full text-left`
+const FeatureText = tw(SectionDescriptionBase)`font-medium text-gray-600 font-normal w-full text-left`
 
 const PlanAction = tw.div`flex flex-row pt-6 px-32`;
 const ButtonContainer = tw.div`w-1/2 p-6`
 const BuyNowButton = styled(PrimaryButtonBase)`
-  ${tw`bg-tbasMain-gray text-tbasMain-purple900 w-full rounded-lg text-left tracking-wider py-8 px-12 text-sm 
+  ${tw`bg-tbasMain-gray text-tbasMain-purple900 w-full rounded-lg text-left tracking-wider py-10 px-12 text-sm relative
   hover:shadow-xl transform hocus:translate-x-px hocus:-translate-y-px focus:shadow-outline`}
 `;
 
@@ -98,13 +98,13 @@ export default function CoursePlans (props){
           <ButtonContainer>
             <BuyNowButton>
               {currInfo.Button1}
-              <ArrowIcon tw="w-6 h-6 inline ml-4" />
+              <ArrowIcon tw="absolute right-0 w-6 h-6 inline mr-12" />
             </BuyNowButton>
           </ButtonContainer>
           <ButtonContainer>
             <BuyNowButton>
               {currInfo.Button2}
-              <ArrowIcon tw="w-6 h-6 inline ml-4" />
+              <ArrowIcon tw="absolute right-0 w-6 h-6 inline mr-12" />
             </BuyNowButton>
           </ButtonContainer>
         </PlanAction>

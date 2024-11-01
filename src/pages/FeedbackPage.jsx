@@ -5,21 +5,20 @@ import AnimationRevealPage from "helpers/AnimationRevealPage.js";
 import Header from "newComponents/headers/Header.jsx";
 import Footer from "newComponents/footer/Footer.jsx";
 
-import TutorsList from "newComponents/Tutors/TutorsList.jsx";
-import AcceptedColleges from "newComponents/Tutors/AcceptedColleges.jsx";
+import TestimonialComponent from "newComponents/Home/Testimonial.jsx";
 
 import TrialLesson from 'newComponents/Home/TrialLesson.jsx';
 
-export default function TutorsPage(props){
+export default function FeedbackPage(props){
   
   return (
     <AnimationRevealPage>
       <Header language = {props.language} />
-      
-      <TutorsList language = {props.language} />
-      <AcceptedColleges language = {props.language} />
-      
+
+      <TestimonialComponent language = {props.language}/>
+
       <TrialLesson language = {props.language}/>
+      
       <Footer language = {props.language}/>
     </AnimationRevealPage>
   );

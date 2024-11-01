@@ -31,11 +31,11 @@ lg:max-w-lg`;
 
 const KeyNumber = tw.h1`text-8xl sm:text-9xl md:text-10xl lg:text-11xl xl:text-30xl font-YuGothic font-extrabold tracking-widest text-tbasMain-orange`;
 
-const ImageColumn = tw.div`w-1/2 h-full flex flex-col`;
+const ImageColumn = tw.div`w-1/2 h-full flex flex-col items-center justify-center mt-12 px-24`;
 
 const Image = styled.div(props => [
   `background-image: url("${props.imageSrc}");`,
-  tw`bg-cover bg-center object-center m-auto w-full h-full rounded-r-3xl`
+  tw`bg-contain bg-no-repeat bg-center object-center m-auto w-full h-full rounded-r-3xl`
 ]);
 
 var currInfo = home_keyAspects[0];
@@ -54,15 +54,21 @@ export default function KeyAspects(props) {
         {currInfo.KeyAspects.map((keyaspect, index) => (
           <Row key={index}>
             <TextColumn>
-              {index != 1 ? <KeyNumber>0{index + 1}</KeyNumber>: <KeyNumber tw="text-tbasMain-lightBlue">0{index + 1}</KeyNumber>}
+              {index !== 1 ? <KeyNumber>0{index + 1}</KeyNumber>: <KeyNumber tw="text-tbasMain-lightBlue">0{index + 1}</KeyNumber>}
               <Heading>
                 {keyaspect.SubHeading}
               </Heading>
               <Description>{keyaspect.Description}</Description>
             </TextColumn>
+            {index !== 1 ? 
             <ImageColumn>
               <Image imageSrc={keyaspect.ImageUrl} />
             </ImageColumn>
+            : <ImageColumn tw="px-32">
+              <Image imageSrc={keyaspect.ImageUrl} />
+            </ImageColumn>
+            }
+            
           </Row>
         ))}
       </Wrapper>

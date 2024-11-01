@@ -12,6 +12,7 @@ import {MainHeading2 as MainHeadingTemplate,
   } from "assets/styles/TailwindComponents.jsx";
 
 import { inPerson_WhySelect } from "assets/tbas-data/TBas_Info.jsx";
+import svgDotPattern from "assets/tbas-images/background/dotBackground.svg";
 
 const Container = tw(ContentFormatted)`relative py-12`;
 
@@ -20,7 +21,13 @@ const MainHeading = tw(MainHeadingTemplate)`w-full tracking-wide text-center tex
 
 const Row = tw.div`flex flex-col lg:flex-row justify-between items-center mx-auto py-8 sm:py-16`;
 
-const TextColumn = tw.div`w-1/2 text-main-black`;
+const BaseTextColumn = tw.div`w-1/2 text-main-black`;
+const TextColumn = styled(BaseTextColumn)(({ isRight }) => [
+    isRight ?
+        tw`mr-12 justify-start`
+    :
+        tw`ml-12 justify-end`
+]);
 const HeadingRow = tw.div`flex flex-col lg:flex-row items-center`;
 const NumberCol = tw.div`w-1/4`;
 const KeyNumber = tw.h1`text-6xl sm:text-8xl lg:text-10xl xl:text-13xl font-YuGothic font-medium tracking-widest`;
@@ -32,9 +39,9 @@ const Description = tw(MainParagraphTemplate)`mt-4 text-main-black leading-relax
 const BaseImageColumn = tw.div`w-1/2 relative h-112 flex`;
 const ImageColumn = styled(BaseImageColumn)(({ isRight }) => [
     isRight ?
-        tw`ml-16 justify-end`
+        tw`ml-12 justify-end`
     :
-        tw`mr-20 justify-start`
+        tw`mr-12 justify-start`
 ]);
 
 const ImageContainer = tw.div`relative z-40 h-full w-full`;
@@ -43,12 +50,11 @@ const Image = styled.div(props => [
     tw`bg-cover bg-center object-center m-auto w-full h-full`
   ]);
 
-const BaseOffsetbackground = tw.div`absolute inset-0 bg-tbasMain-purple500 w-full h-full`;
-const Offsetbackground = styled(BaseOffsetbackground)(({ isRight }) => [
-    isRight ?
-        tw`right-0 mr-6 mt-6 md:mr-8 md:mt-8 lg:mr-10 lg:mt-10`
-    :
-        tw`left-0 ml-6 mt-6 md:ml-8 md:mt-8 lg:ml-10 lg:mt-10 `
+const Offsetbackground = tw.div`absolute inset-0 bg-tbasMain-purple500 w-full h-full right-0 -translate-x-8 translate-y-8`;
+
+const OffsetSvg = styled.div(props => [
+    `background-image: url("${props.imageSrc}");`,
+    tw`absolute inset-0 bg-cover bg-center m-auto w-full h-full left-0 translate-x-8 translate-y-8`
 ]);
 
 var currInfo = inPerson_WhySelect[0];
@@ -65,7 +71,7 @@ export default function ImportanceHero(props) {
                 <Row key={index}>
                     {(index % 2) == 0 ? 
                     <>
-                        <TextColumn>
+                        <TextColumn isRight={true}>
                             <HeadingRow>
                                 <NumberCol>
                                     <KeyNumber>0{index + 1}</KeyNumber>
@@ -80,7 +86,7 @@ export default function ImportanceHero(props) {
                             <ImageContainer>
                                 <Image imageSrc={reason.ImageUrl} />
                             </ImageContainer>
-                            <Offsetbackground/>
+                            <Offsetbackground />
                         </ImageColumn>
                     </>
                     : 
@@ -89,7 +95,7 @@ export default function ImportanceHero(props) {
                             <ImageContainer>
                                 <Image imageSrc={reason.ImageUrl} />
                             </ImageContainer>
-                            <Offsetbackground/>
+                            <OffsetSvg imageSrc={svgDotPattern} />
                         </ImageColumn>
                         <TextColumn>
                             <HeadingRow>

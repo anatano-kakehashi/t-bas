@@ -19,23 +19,23 @@ import collegeLecture from "assets/tbas-images/tutors/collegeLecture.jpeg";
 import gradCap from "assets/tbas-images/tutors/gradCap.jpeg";
 import { ReactComponent as EmailIcon } from "feather-icons/dist/icons/mail.svg";
 
-const Container = tw(BaseContainer)`py-12`;
+const Container = tw(BaseContainer)`pt-12`;
 
 const Heading = tw(MainHeadingTemplate)`text-left text-tbasMain-purple900 lg:tracking-[3.6px] pt-10`;
 
 const Row = tw.div`flex flex-col md:flex-row 
 max-w-screen-lg xl:max-w-screen-xl 
-justify-between items-center lg:my-12 mx-auto h-192 rounded-3xl space-x-4`;
+justify-between items-center lg:my-12 mx-auto h-272 rounded-3xl space-x-4`;
 
 const TextColumn = tw.div`
-w-1/2 h-full flex flex-col justify-center bg-tbasMain-purple500 py-16 px-8 rounded-3xl`;
+w-2/5 h-full flex flex-col justify-center bg-tbasMain-purple500 py-16 px-8 rounded-3xl`;
 
 const BulletList = tw.ul`my-4 ml-12 list-disc`;
 const BulletItem = tw.li`text-sm md:text-base lg:text-lg font-light leading-relaxed text-main-black`;
 
 const Closing = tw(MainParagraphTemplate)`mt-4 text-main-black font-roboto font-medium`;
 
-const ImageColumn = tw.div`w-1/2 h-full flex flex-col space-y-4`;
+const ImageColumn = tw.div`w-3/5 h-full flex flex-col space-y-4`;
 
 const Image = styled.div(props => [
   `background-image: url("${props.imageSrc}");`,

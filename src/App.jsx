@@ -8,8 +8,10 @@ import InPersonPage from "pages/InPersonPage.jsx";
 import OnlinePage from "pages/OnlinePage.jsx";
 import TutorsPage from "pages/TutorsPage.jsx"
 import ContactPage from "pages/ContactPage.jsx";
-
-import ServicesPage from "pages/ServicesPage";
+import FeedbackPage from "pages/FeedbackPage.jsx";
+import ServicesPage from "pages/ServicesPage.jsx";
+import AccessPage from "pages/AccessPage.jsx";
+import FaqPage from "pages/FaqPage.jsx";
 import ScrollToTop from "helpers/scrollToTop";
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
@@ -37,17 +39,15 @@ export default function App() {
           <Route path="/tutors" element = {<TutorsPage language = "JP"/>} />
           <Route path="/eng/tutors" element = {<TutorsPage language = "ENG"/>} />
 
-          <Route path="/feedback" element = {<ServicesPage language = "JP"/>} />
-          <Route path="/eng/feedback" element = {<ServicesPage language = "ENG"/>} />
+          <Route path="/feedback" element = {<FeedbackPage language = "JP"/>} />
+          <Route path="/eng/feedback" element = {<FeedbackPage language = "ENG"/>} />
 
-          <Route path="/faq" element = {<ServicesPage language = "JP"/>} />
-          <Route path="/eng/faq" element = {<ServicesPage language = "ENG"/>} />
-
-          <Route path="/access" element = {<ServicesPage language = "JP"/>} />
-          <Route path="/eng/access" element = {<ServicesPage language = "ENG"/>} />
+          <Route path="/faq" element = {<FaqPage language = "JP"/>} />
+          <Route path="/eng/faq" element = {<FaqPage language = "ENG"/>} />
           
-          <Route path="/access" element = {<ServicesPage language = "JP"/>} />
-          <Route path="/eng/access" element = {<ServicesPage language = "ENG"/>} />
+          <Route path="/access" element = {<AccessPage language = "JP"/>} />
+          <Route path="/eng/access" element = {<AccessPage language = "ENG"/>} />
+
           <Route path="/contact" element = {<ContactPage language = "JP"/>} />
           <Route path="/eng/contact" element = {<ContactPage language = "ENG"/>} />
         </Routes>

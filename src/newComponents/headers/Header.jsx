@@ -48,7 +48,7 @@ const LogoLink = styled(NavLink)`
 const PrimaryLink = tw(NavLink)`
   lg:mx-0
   p-4 mb-2
-  rounded bg-tbasMain-purple900 text-gray-100
+  rounded-xl bg-tbasMain-purple900 text-gray-100
   hocus:bg-tbasMain-orange hocus:text-gray-200 focus:shadow-outline
   border-b-0
 `;

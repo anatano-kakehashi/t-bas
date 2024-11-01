@@ -12,15 +12,17 @@ import {
     MainParagraph as MainParagraphTemplate,
     PrimaryButton as PrimaryButtonBase,
     SectionDescription as SectionDescriptionBase,
-    ContentFormatted,
-    Container as BaseContainer
+    ContentFormatted as BaseContainer
   } from "assets/styles/TailwindComponents.jsx";
 
 import Pagination from "./Pagination.jsx";
 
 import { tutors_list } from "assets/tbas-data/TBas_Info.jsx";
 import background from "assets/tbas-images/background/classroom.png";
-import { ReactComponent as ArrowIcon } from "feather-icons/dist/icons/arrow-right-circle.svg";
+import female from "assets/tbas-images/tutors/female.svg";
+import male from "assets/tbas-images/tutors/male.svg";
+
+const Container = tw(BaseContainer)`py-12`;
 
 const Heading = tw(MainHeadingTemplate)`text-left text-tbasMain-purple900 lg:tracking-[3.6px] pt-10`;
 
@@ -29,7 +31,7 @@ const Row = tw.div`flex flex-col md:flex-row justify-between items-center lg:my-
 const ImageColumn = tw.div`w-1/5 flex flex-col items-center justify-center`;
 const Image = styled.div(props => [
   `background-image: url("${props.imageSrc}");`,
-  tw`bg-cover bg-center rounded-full object-center m-auto w-48 h-48`
+  tw`bg-cover bg-center rounded-full object-center m-auto w-48 h-48 border-0`
 ]);
 const ImageHeading = tw(SubMainHeadingTemplate)`pt-6 text-center text-main-black`;
 
@@ -42,11 +44,10 @@ const TextColumnHeading = tw(MainParagraphTemplate)`w-full text-left text-main-b
 const TextColumnDescription = tw(SectionDescriptionBase)`mt-4 text-main-black font-roboto font-light max-w-full`;
 
 const BulletList = tw.ul`my-4 ml-12 list-disc`;
-const BulletItem = tw.li`text-sm md:text-base lg:text-lg font-light leading-relaxed text-main-black`;
+const BulletItem = tw.li`text-sm md:text-base lg:text-lg xl:text-xl font-light leading-relaxed text-main-black`;
 
-
-const ButtonRow = tw.div`flex justify-center items-center lg:my-12 mx-auto`;
-const PrimaryButton = tw(PrimaryButtonBase)`px-8 w-1/5 mt-8 tracking-wide text-center rounded-md `;
+const TagContainer = tw.div`flex flex-row mt-2 py-2`;
+const PurpleLabel = tw.span`bg-tbasMain-purple500 font-light text-sm md:text-base lg:text-lg xl:text-xl px-4 ml-4 rounded-sm`;
 
 var currInfo = tutors_list[0];
 export default function TrialLesson(props) {
@@ -55,7 +56,7 @@ export default function TrialLesson(props) {
   }
   
   const [currentPage, setCurrentPage] = useState(1);
-  const tutorsPerPage = 2;
+  const tutorsPerPage = 8;
 
   // Calculate the index of the last tutor on the current page
   const lastTutorIndex = currentPage * tutorsPerPage;
@@ -73,9 +74,8 @@ export default function TrialLesson(props) {
     });
   };
 
-
   return (
-    <ContentFormatted>
+    <Container>
       <Heading>
         {currInfo.heading}
       </Heading>
@@ -83,7 +83,10 @@ export default function TrialLesson(props) {
       {currentTutors.map((tutor, index) => (
         <Row key={index}>
           <ImageColumn>
-            <Image imageSrc={background} />
+            {tutor.gender === "Female"
+              ? <Image imageSrc={female} />
+              : <Image imageSrc={male} />
+            }
             <ImageHeading>
               {tutor.name}
             </ImageHeading>
@@ -105,13 +108,13 @@ export default function TrialLesson(props) {
               <TextColumnHeading>
                 担当科目：
               </TextColumnHeading>
-              <BulletList>
+              <TagContainer>
                 {tutor.subjects.map((subject, subjectIndex) => (
-                  <BulletItem key={subjectIndex}>
+                  <PurpleLabel key={subjectIndex}>
                     {subject}
-                  </BulletItem>
+                  </PurpleLabel>
                 ))}
-              </BulletList>
+              </TagContainer>
             </TextColumnRow>
             <TextColumnRow>
               <TextColumnHeading>
@@ -131,6 +134,6 @@ export default function TrialLesson(props) {
         currentPage={currentPage}
         paginate={paginate}
       />
-    </ContentFormatted>
+    </Container>
   );
 };
