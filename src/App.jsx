@@ -9,7 +9,6 @@ import OnlinePage from "pages/OnlinePage.jsx";
 import TutorsPage from "pages/TutorsPage.jsx"
 import ContactPage from "pages/ContactPage.jsx";
 import FeedbackPage from "pages/FeedbackPage.jsx";
-import ServicesPage from "pages/ServicesPage.jsx";
 import AccessPage from "pages/AccessPage.jsx";
 import FaqPage from "pages/FaqPage.jsx";
 import ScrollToTop from "helpers/scrollToTop";
@@ -26,7 +25,6 @@ export default function App() {
         <Routes>
           <Route exact path="/" element = {<HomePage language = "JP"/>} />
           <Route exact path="/eng" element = {<HomePage language = "ENG"/>} />
-
 
           <Route path="/aboutTbas" element = {<AboutPage language = "JP"/>} />
           <Route path="/eng/aboutTbas" element = {<AboutPage language = "ENG"/>} />
@@ -53,6 +51,5 @@ export default function App() {
         </Routes>
       </Router>
     </>
-    
   );
 }

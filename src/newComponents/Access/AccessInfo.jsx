@@ -5,9 +5,9 @@ import { css } from "styled-components/macro"; //eslint-disable-line
 
 /* ========= importing assets ============ */
 import {
-    MainHeading2 as MainHeadingTemplate,
+    MainHeading as MainHeadingTemplate,
     ContentFormatted as BaseContainer,
-    SectionDescription as SectionDescriptionBase,
+    MainParagraph2 as SectionDescriptionBase,
     ContentFormatted2
   } from "assets/styles/TailwindComponents.jsx";
 
@@ -17,7 +17,8 @@ import { ReactComponent as ArrowIcon } from "feather-icons/dist/icons/arrow-down
 
 const Container = tw(BaseContainer)`py-12`;
 
-const Heading = tw(MainHeadingTemplate)`text-left text-tbasMain-purple900 lg:tracking-[3.6px] pt-10`;
+const Heading = tw(MainHeadingTemplate)`text-left text-tbasMain-purple900 tracking-widest font-black pt-8 pb-6`;
+const HorizontalLine = tw.div`text-main-black bg-main-black border h-[3px]`;
 const SubHeading = tw(SectionDescriptionBase)`text-left mt-4 text-main-black font-normal py-6`;
 
 
@@ -37,16 +38,16 @@ const Image = styled.div(props => [
   w-full h-full rounded-3xl`
 ]);
 
-const MapContainer = tw.div`flex items-center justify-center h-160`
+const MapContainer = tw.div`flex items-center justify-center h-192`
 
 const GoogleMapEmbed = () => (
-    <iframe
-      title="Google Map"
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3245.617410723872!2d139.4599744762136!3d35.5631499364508!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6018f9c1eb0b46bf%3A0xf722f2915d392134!2zVC1CQVPnjonlt53lrablnJI!5e0!3m2!1sja!2sus!4v1730299210861!5m2!1sja!2sus"
-      style={{ width: '100%', height: '100%', border: 0 }}
-      allowFullScreen=""
-      loading="lazy"
-    />
+  <iframe
+    title="Google Map"
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3245.617410723872!2d139.4599744762136!3d35.5631499364508!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6018f9c1eb0b46bf%3A0xf722f2915d392134!2zVC1CQVPnjonlt53lrablnJI!5e0!3m2!1sja!2sus!4v1730299210861!5m2!1sja!2sus"
+    style={{ width: '100%', height: '100%', border: 0 }}
+    allowFullScreen=""
+    loading="lazy"
+  />
 );
 
 var currInfo = access[0];
@@ -57,14 +58,10 @@ export default function TrialLesson(props) {
 
   return (
     <Container>
-      <Heading>
-        {currInfo.heading}
-      </Heading>
-      <hr/>
+      <Heading>{currInfo.heading}</Heading>
+      <HorizontalLine />
       <ContentFormatted2>
-        <SubHeading>
-          {currInfo.subHeading}
-        </SubHeading>
+        <SubHeading>{currInfo.subHeading}</SubHeading>
         <MapContainer>
           <GoogleMapEmbed />
         </MapContainer>

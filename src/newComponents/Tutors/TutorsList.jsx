@@ -3,28 +3,25 @@ import styled from "styled-components";
 import tw from "twin.macro";
 import { css } from "styled-components/macro"; //eslint-disable-line
 
-import { useNavigate } from 'react-router-dom';
-
 /* ========= importing assets ============ */
 import {
-    MainHeading2 as MainHeadingTemplate,
-    SubMainHeading as SubMainHeadingTemplate,
-    MainParagraph as MainParagraphTemplate,
-    PrimaryButton as PrimaryButtonBase,
-    SectionDescription as SectionDescriptionBase,
-    ContentFormatted as BaseContainer
-  } from "assets/styles/TailwindComponents.jsx";
+  MainHeading as MainHeadingTemplate,
+  SubMainHeading as SubMainHeadingTemplate,
+  MainParagraph as MainParagraphTemplate,
+  SectionDescription as SectionDescriptionBase,
+  ContentFormatted as BaseContainer
+} from "assets/styles/TailwindComponents.jsx";
 
 import Pagination from "./Pagination.jsx";
 
 import { tutors_list } from "assets/tbas-data/TBas_Info.jsx";
-import background from "assets/tbas-images/background/classroom.png";
 import female from "assets/tbas-images/tutors/female.svg";
 import male from "assets/tbas-images/tutors/male.svg";
 
 const Container = tw(BaseContainer)`py-12`;
 
-const Heading = tw(MainHeadingTemplate)`text-left text-tbasMain-purple900 lg:tracking-[3.6px] pt-10`;
+const Heading = tw(MainHeadingTemplate)`text-left text-tbasMain-purple900 tracking-widest font-black pt-8 pb-6`;
+const HorizontalLine = tw.div`text-main-black bg-main-black border h-[3px]`;
 
 const Row = tw.div`flex flex-col md:flex-row justify-between items-center lg:my-12 mx-auto shadow-lg rounded-3xl bg-tbasMain-purple400`;
 
@@ -35,22 +32,21 @@ const Image = styled.div(props => [
 ]);
 const ImageHeading = tw(SubMainHeadingTemplate)`pt-6 text-center text-main-black`;
 
-const TextColumn = tw.div`
-w-4/5 h-full flex flex-col py-16 pr-8 rounded-l-3xl`;
+const TextColumn = tw.div`w-4/5 h-full flex flex-col py-16 pr-8 rounded-l-3xl`;
 
-const TextColumnRow = tw.div`flex flex-col bg-main-white mb-4 p-4 rounded-xl `
+const TextColumnRow = tw.div`flex flex-col bg-main-white mb-4 px-6 py-8 rounded-xl `
 
-const TextColumnHeading = tw(MainParagraphTemplate)`w-full text-left text-main-black font-bold lg:tracking-[3.6px]`;
-const TextColumnDescription = tw(SectionDescriptionBase)`mt-4 text-main-black font-roboto font-light max-w-full`;
+const TextColumnHeading = tw(MainParagraphTemplate)`w-full text-left text-main-black font-extrabold tracking-widest`;
+const TextColumnDescription = tw(SectionDescriptionBase)`mt-4 text-main-black font-light max-w-full`;
 
-const BulletList = tw.ul`my-4 ml-12 list-disc`;
+const BulletList = tw.ul`mt-4 ml-12 list-disc`;
 const BulletItem = tw.li`text-sm md:text-base lg:text-lg xl:text-xl font-light leading-relaxed text-main-black`;
 
 const TagContainer = tw.div`flex flex-row mt-2 py-2`;
-const PurpleLabel = tw.span`bg-tbasMain-purple500 font-light text-sm md:text-base lg:text-lg xl:text-xl px-4 ml-4 rounded-sm`;
+const PurpleLabel = tw.span`bg-tbasMain-purple500 font-light text-sm md:text-base lg:text-lg xl:text-xl px-6 ml-4 rounded-sm`;
 
 var currInfo = tutors_list[0];
-export default function TrialLesson(props) {
+export default function TutorList(props) {
   if(props.language === "ENG"){
     currInfo = tutors_list[1];
   }
@@ -76,10 +72,8 @@ export default function TrialLesson(props) {
 
   return (
     <Container>
-      <Heading>
-        {currInfo.heading}
-      </Heading>
-      <hr/>
+      <Heading>{currInfo.heading}</Heading>
+      <HorizontalLine />
       {currentTutors.map((tutor, index) => (
         <Row key={index}>
           <ImageColumn>
@@ -87,15 +81,11 @@ export default function TrialLesson(props) {
               ? <Image imageSrc={female} />
               : <Image imageSrc={male} />
             }
-            <ImageHeading>
-              {tutor.name}
-            </ImageHeading>
+            <ImageHeading>{tutor.name}</ImageHeading>
           </ImageColumn>
           <TextColumn>
             <TextColumnRow>
-              <TextColumnHeading>
-                経歴：
-              </TextColumnHeading>
+              <TextColumnHeading>{currInfo.eduHeading}</TextColumnHeading>
               <BulletList>
                 {tutor.education.map((program, programIndex) => (
                   <BulletItem key={programIndex}>
@@ -105,9 +95,7 @@ export default function TrialLesson(props) {
               </BulletList>
             </TextColumnRow>
             <TextColumnRow>
-              <TextColumnHeading>
-                担当科目：
-              </TextColumnHeading>
+              <TextColumnHeading>{currInfo.subHeading}</TextColumnHeading>
               <TagContainer>
                 {tutor.subjects.map((subject, subjectIndex) => (
                   <PurpleLabel key={subjectIndex}>
@@ -117,12 +105,8 @@ export default function TrialLesson(props) {
               </TagContainer>
             </TextColumnRow>
             <TextColumnRow>
-              <TextColumnHeading>
-                コメント：
-              </TextColumnHeading>
-              <TextColumnDescription>
-                {tutor.comment}
-              </TextColumnDescription>
+              <TextColumnHeading>{currInfo.comHeading}</TextColumnHeading>
+              <TextColumnDescription>{tutor.comment}</TextColumnDescription>
             </TextColumnRow>
           </TextColumn>
         </Row>

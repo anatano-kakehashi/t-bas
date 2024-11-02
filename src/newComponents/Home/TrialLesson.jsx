@@ -7,11 +7,11 @@ import { useNavigate } from 'react-router-dom';
 
 /* ========= importing assets ============ */
 import {
-    SubMainHeading as SubMainHeadingTemplate,
-    MainParagraph as MainParagraphTemplate,
-    PrimaryButton as PrimaryButtonBase,
-    ContentFormatted as BaseContainer
-  } from "assets/styles/TailwindComponents.jsx";
+  MainHeading3 as HeadingTitle3Template,
+  MainParagraph as MainParagraphTemplate,
+  PrimaryButton as PrimaryButtonBase,
+  ContentFormatted as BaseContainer
+} from "assets/styles/TailwindComponents.jsx";
 
 import { home_trialLessons } from "assets/tbas-data/TBas_Info.jsx";
 import background from "assets/tbas-images/background/classroom.png";
@@ -24,8 +24,8 @@ const Row = tw.div`flex flex-col md:flex-row justify-between items-center lg:my-
 const TextColumn = tw.div`
 w-1/2 h-full flex flex-col justify-center bg-main-white py-16 pl-16 rounded-l-3xl`;
 
-const Heading = tw(SubMainHeadingTemplate)`text-left text-main-black lg:tracking-[3.6px]`;
-const Description = tw(MainParagraphTemplate)`mt-4 text-main-black font-roboto font-medium lg:max-w-lg xl:max-w-xl`;
+const Heading = tw(HeadingTitle3Template)`text-left text-main-black tracking-widest`;
+const Description = tw(MainParagraphTemplate)`mt-16 text-main-black font-bold `;
 const PrimaryButton = tw(PrimaryButtonBase)`px-2 w-2/5 mt-8 inline-block tracking-wide text-center rounded-md`;
 
 const ImageColumn = tw.div`w-1/2 h-full flex flex-col`;
@@ -50,14 +50,15 @@ export default function TrialLesson(props) {
         <TextColumn>
           <Heading>
             {currInfo.Heading[0]}
-            <Heading tw="inline text-tbasMain-purple900">{currInfo.Heading[1]}</Heading>
+            <Heading tw="inline text-tbasMain-purple900">
+              {currInfo.Heading[1]}
+            </Heading>
             {currInfo.Heading[2]}
-            <br/>
-            {currInfo.Heading[3]}
           </Heading>
+          <Heading tw="mt-4">{currInfo.Heading[3]}</Heading>
           <Description>{currInfo.Subheading}</Description>
           <PrimaryButton onClick={() => navigate(currNavPath + "aboutMe")}>
-            <EmailIcon tw="w-6 h-6 inline mr-4" />
+            <EmailIcon tw="w-6 h-6 inline mr-4 mb-1" />
             {currInfo.ActionButton}
           </PrimaryButton>
         </TextColumn>

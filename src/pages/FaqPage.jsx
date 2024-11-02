@@ -13,10 +13,8 @@ export default function FaqPage(props){
   return (
     <AnimationRevealPage>
       <Header language = {props.language} />
-
       <FAQComponent language = {props.language} />
       <TrialLesson language = {props.language}/>
-      
       <Footer language = {props.language}/>
     </AnimationRevealPage>
   );

@@ -3,25 +3,22 @@ import styled from "styled-components";
 import tw from "twin.macro";
 import { css } from "styled-components/macro"; //eslint-disable-line
 
-import { useNavigate } from 'react-router-dom';
-
 /* ========= importing assets ============ */
 import {
-    MainHeading2 as MainHeadingTemplate,
-    SubMainHeading as SubMainHeadingTemplate,
-    MainParagraph as MainParagraphTemplate,
+    MainHeading as MainHeadingTemplate,
     PrimaryButton as PrimaryButtonBase,
-    ContentFormatted as BaseContainer
+    ContentFormatted as BaseContainer,
+    ContentFormatted2
   } from "assets/styles/TailwindComponents.jsx";
 
-import { tutors_acceptance } from "assets/tbas-data/TBas_Info.jsx";
+import { contactUsForm } from "assets/tbas-data/TBas_Info.jsx";
 
 const Container = tw(BaseContainer)`py-12`;
 
-const Heading = tw(MainHeadingTemplate)`text-left text-tbasMain-purple900 lg:tracking-[3.6px] pt-10`;
+const Heading = tw(MainHeadingTemplate)`text-left text-tbasMain-purple900 tracking-widest font-black pt-8 pb-6`;
+const HorizontalLine = tw.div`text-main-black bg-main-black border h-[3px]`;
 
-const Row = tw.div`flex flex-col
-max-w-screen-lg xl:max-w-screen-xl bg-tbasMain-purple400 
+const Row = tw(ContentFormatted2)`flex flex-col bg-tbasMain-purple400 
 justify-between items-center 
 lg:my-12 py-12 mx-auto rounded-3xl`;
 
@@ -40,10 +37,10 @@ const Textarea = styled(Input).attrs({as: "textarea"})`
 
 const SubmitButton = tw(PrimaryButtonBase)`inline-block mt-8`
 
-var currInfo = tutors_acceptance[0];
+var currInfo = contactUsForm[0];
 export default function TrialLesson(props) {
   if(props.language === "ENG"){
-    currInfo = tutors_acceptance[1];
+    currInfo = contactUsForm[1];
   }
 
   const [name, setName] = useState('');
@@ -77,7 +74,7 @@ export default function TrialLesson(props) {
         mode: 'no-cors', // Use no-cors mode to avoid CORS issues
         body: formData,
       });
-      setResponseMessage('Submission successful!');
+      setResponseMessage(currInfo.successResponse);
       setName('');
       setFurigana('');
       setPhoneNumber('');
@@ -89,77 +86,75 @@ export default function TrialLesson(props) {
       setQuestion('');
     } catch (error) {
       console.error('Error submitting form:', error);
-      setResponseMessage('Submission failed. Please try again.');
+      setResponseMessage(currInfo.errorResponse);
     }
   };
 
   return (
     <Container>
-      <Heading>
-        {currInfo.heading}
-      </Heading>
-      <hr/>
+      <Heading>{currInfo.heading}</Heading>
+      <HorizontalLine />
       <Row>
         <Form onSubmit={handleSubmit}>
           <Label for="name">
-            <RedLabel>必須</RedLabel>
-            名前（生徒）
+            <RedLabel>{currInfo.required}</RedLabel>
+            {currInfo.entryForms[0].entry}
           </Label>
-          <Input id="name" type="text" value={name} onChange={(e) => setName(e.target.value)} placeholder="例：山田太郎" required />
+          <Input id="name" type="text" value={name} onChange={(e) => setName(e.target.value)} placeholder={currInfo.entryForms[0].example} required />
 
           <Label for="furigana">
-            <RedLabel>必須</RedLabel>
-            フリガナ
+            <RedLabel>{currInfo.required}</RedLabel>
+            {currInfo.entryForms[1].entry}
           </Label>
-          <Input id="furigana" type="text" value={furigana} onChange={(e) => setFurigana(e.target.value)} placeholder="例：ヤマダタロウ" required />
+          <Input id="furigana" type="text" value={furigana} onChange={(e) => setFurigana(e.target.value)} placeholder={currInfo.entryForms[1].example} required />
           
           <Label for="phone">
-            <RedLabel>必須</RedLabel>
-            電話番号
+            <RedLabel>{currInfo.required}</RedLabel>
+            {currInfo.entryForms[2].entry}
           </Label>
-          <Input id="phone" type="tel" value={phoneNumber} onChange={(e) => setPhoneNumber(e.target.value)} placeholder="例：000-0000-0000" required />
+          <Input id="phone" type="tel" value={phoneNumber} onChange={(e) => setPhoneNumber(e.target.value)} placeholder={currInfo.entryForms[2].example} required />
 
           <Label for="email">
-            <RedLabel>必須</RedLabel>
-            メールアドレス
+            <RedLabel>{currInfo.required}</RedLabel>
+            {currInfo.entryForms[3].entry}
           </Label>
-          <Input id="email" type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="例：user@example.jp" required/>
+          <Input id="email" type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder={currInfo.entryForms[3].example} required/>
 
           <Label for="school">
-            <RedLabel>必須</RedLabel>
-            学校名
+            <RedLabel>{currInfo.required}</RedLabel>
+            {currInfo.entryForms[4].entry}
           </Label>
-          <Input id="school" type="text" value={school} onChange={(e) => setSchool(e.target.value)} placeholder="例：T-BAS玉川学園" required />
+          <Input id="school" type="text" value={school} onChange={(e) => setSchool(e.target.value)} placeholder={currInfo.entryForms[4].example} required />
 
           <Label for="subject">
-            <RedLabel>必須</RedLabel>
-            科目
+            <RedLabel>{currInfo.required}</RedLabel>
+            {currInfo.entryForms[5].entry}
           </Label>
           <DropDown id="subject" value={subject} onChange={(e) => setSubject(e.target.value)}>
-            <Options value="Math">Math</Options>
+            <Options value={currInfo.entryForms[5].example}>{currInfo.entryForms[5].example}</Options>
           </DropDown>
 
           <Label for="grade">
-            <RedLabel>必須</RedLabel>
-            学年
+            <RedLabel>{currInfo.required}</RedLabel>
+            {currInfo.entryForms[6].entry}
           </Label>
-          <Input id="grade" type="text" value={gradeLevel} onChange={(e) => setGradeLevel(e.target.value)} placeholder="例：６年生" required />
+          <Input id="grade" type="text" value={gradeLevel} onChange={(e) => setGradeLevel(e.target.value)} placeholder={currInfo.entryForms[6].example} required />
 
           <Label for="contactType">
-            <RedLabel>必須</RedLabel>
-            お問い合わせ種別
+            <RedLabel>{currInfo.required}</RedLabel>
+            {currInfo.entryForms[7].entry}
           </Label>
           <DropDown id="contactType" value={questionCategory} onChange={(e) => setQuestionCategory(e.target.value)}>
-            <Options value="Price">Price</Options>
+            <Options value={currInfo.entryForms[7].example}>{currInfo.entryForms[7].example}</Options>
           </DropDown>
           
           <Label for="question">
-            <RedLabel>必須</RedLabel>
-            お問い合わせ内容
+            <RedLabel>{currInfo.required}</RedLabel>
+            {currInfo.entryForms[8].entry}
           </Label>
-          <Textarea id="question" value={question} onChange={(e) => setQuestion(e.target.value)} placeholder="現在の成績・相談内容" />
+          <Textarea id="question" value={question} onChange={(e) => setQuestion(e.target.value)} placeholder={currInfo.entryForms[8].example} />
 
-          <SubmitButton type="submit">Submit</SubmitButton>
+          <SubmitButton type="submit">{currInfo.send}</SubmitButton>
         </Form>
         {responseMessage && <div>{responseMessage}</div>}
       </Row>

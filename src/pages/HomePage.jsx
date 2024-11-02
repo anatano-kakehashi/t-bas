@@ -1,7 +1,7 @@
 import React from 'react';
 
-import Hero from "newComponents/Home/1_Hero.jsx";
-import Concerns from 'newComponents/Home/2_Concerns';
+import Hero from "newComponents/Home/Hero.jsx";
+import Concerns from 'newComponents/Home/Concerns';
 import TrialLesson from 'newComponents/Home/TrialLesson';
 import KeyAspects from 'newComponents/Home/KeyAspects';
 import CoursePlans from 'newComponents/Home/CoursePlans';

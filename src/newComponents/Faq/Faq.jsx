@@ -5,20 +5,20 @@ import tw from "twin.macro";
 import { css } from "styled-components/macro"; //eslint-disable-line
 
 import {
-    MainHeading2 as MainHeadingTemplate,
-    SubMainHeading as SubMainHeadingTemplate,
-    MainParagraph as MainParagraphTemplate,
-    MainParagraph2 as MainParagraph2Template,
-    LargerMainParagraph as LargerMainParagraphTemplate,
-    ContentFormatted
-  } from "assets/styles/TailwindComponents.jsx";
+  MainHeading as MainHeadingTemplate,
+  MainHeading2 as SubMainHeadingTemplate,
+  MainParagraph as MainParagraphTemplate,
+  MainParagraph2 as MainParagraph2Template,
+  ContentFormatted
+} from "assets/styles/TailwindComponents.jsx";
 
 import { ReactComponent as ChevronDownIcon } from "feather-icons/dist/icons/chevron-down.svg";
 import { faqInfo } from "assets/tbas-data/TBas_Info.jsx";
 
+const Heading = tw(MainHeadingTemplate)`text-left text-tbasMain-purple900 tracking-widest font-black pt-8 pb-6`;
+const HorizontalLine = tw.div`text-main-black bg-main-black border h-[3px]`;
 
-const Heading = tw(MainHeadingTemplate)`text-left text-tbasMain-purple900 lg:tracking-[3.6px] pt-10`;
-const SubHeading = tw(SubMainHeadingTemplate)`text-tbasMain-purple900 text-center py-10`;
+const SubHeading = tw(SubMainHeadingTemplate)`text-tbasMain-purple900 text-center py-16`;
 
 const Container = tw.div`flex flex-col items-center w-full`;
 const FAQSContainer = tw.dl`relative space-y-8 w-full`;
@@ -50,27 +50,27 @@ py-4 px-6 rounded-full`;
 const QLabel = tw(BaseLabel)`bg-tbasMain-purple900`;
 const ALabel = tw(BaseLabel)`bg-tbasMain-orange`;
 
-const InternalNavBar = tw.div`inline-block flex cursor-pointer py-6`;
+const InternalNavBar = tw.div`inline-block flex cursor-pointer py-6 my-12`;
 const NavLink = tw.a`
   text-lg 
   lg:mx-4 xl:mx-6 my-2 lg:my-0
   font-semibold tracking-wide transition duration-300
-  p-4 border border-black rounded-md
+  py-4 px-8 border border-black rounded-md
   text-tbasMain-purple900
   hocus:text-tbasMain-orange
 `;
 
-const PriceTable = tw.div`flex flex-col w-14/16 m-6 border border-black`;
+const PriceTable = tw.div`flex flex-col w-14/16 mx-6 my-12 border border-black`;
 const PriceHeadingContainer = tw.div`w-full text-center p-8`
 const PriceHeading = tw(SubMainHeadingTemplate)`text-tbasMain-purple900 text-center`;
 const PriceKeyNote = tw(MainParagraphTemplate)`text-main-red text-center`;
 
 const CourseColumnContainer = tw.div`flex flex-row w-full`;
-const CourseColumn = tw.div`flex flex-col w-1/3 text-center py-6 px-12 border-black`;
-const CourseHeading = tw(MainHeadingTemplate)`font-bold w-full text-center`;
+const CourseColumn = tw.div`flex flex-col w-1/3 text-center py-6 px-8 border-black`;
+const CourseHeading = tw(MainHeadingTemplate)`font-bold w-full text-center my-8`;
 const CostHeading = tw(MainHeadingTemplate)`font-bold w-full text-center`;
-const CourseDescription = tw(MainParagraph2Template)`inline-block text-left text-tbasMain-purple900 font-medium`;
-const PriceCourseDescription = tw(CourseDescription)`ml-1 inline-block text-main-black font-light`;
+const CourseDescription = tw(MainParagraph2Template)`inline-block text-left text-tbasMain-purple900 font-medium mt-6`;
+const PriceCourseDescription = tw(CourseDescription)`inline-block text-main-black font-light`;
 
 var currInfo = faqInfo[0];
 
@@ -115,11 +115,8 @@ export default function FAQComponent(props){
 
   return (
     <ContentFormatted tw="pb-16">
-      <Heading>
-        {currInfo.heading}
-      </Heading>
-      <hr/>
-      <br /> <br />
+      <Heading>{currInfo.heading}</Heading>
+      <HorizontalLine />
       <Container>
         <InternalNavBar>
           <NavLink href="#" onClick={() => scrollToElement('lesson')}>

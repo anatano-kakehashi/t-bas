@@ -3,7 +3,10 @@ import tw from "twin.macro";
 /* ===== define some twin / tailwind css for components ===== */
 
 // Button
-export const PrimaryButton = tw.button`px-8 py-3 font-bold rounded bg-tbasMain-purple900 hocus:bg-tbasMain-orange text-main-white focus:shadow-outline focus:outline-none transition duration-300 font-roboto text-sm sm:text-base md:text-lg lg:text-xl`;
+export const PrimaryButton = tw.button`px-8 py-3 font-bold rounded bg-tbasMain-purple900 hocus:bg-tbasMain-orange 
+text-main-white font-YuGothic 
+focus:shadow-outline focus:outline-none transition duration-300
+text-sm md:text-base lg:text-lg xl:text-xl`;
 
 // Headers
 export const SectionHeading = tw.h2`text-4xl sm:text-5xl font-black tracking-wide text-center`
@@ -44,14 +47,21 @@ export const HightlightedText = tw.span`text-primary-500`
 
 // AK related components
 
-export const MainSectionHeading = tw.h1`text-4xl sm:text-6xl md:text-8xl lg:text-10xl xl:text-12xl font-openSans font-extrabold`;
-export const SubMainSectionHeading = tw.h1`text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-8xl font-openSans font-extrabold`;
+export const MainSectionHeading = tw.h1`text-4xl sm:text-6xl md:text-8xl lg:text-10xl xl:text-12xl font-YuGothic font-extrabold`;
+export const SubMainSectionHeading = tw.h1`text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-8xl font-YuGothic font-extrabold`;
 
-export const MainHeading = tw.h1`text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-YuGothic font-extrabold`;
-export const MainHeading2 = tw.h1`text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-openSans font-extrabold`;
-export const SubMainHeading = tw.h1`text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-openSans font-extrabold`;
-export const MainParagraph = tw.p`font-YuGothic font-light text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl`;
-export const MainParagraph2 = tw.p`font-YuGothic font-light text-sm md:text-base lg:text-lg xl:text-xl`;
+export const MainHeading = tw.h1`text-7xl sm:text-9xl md:text-12xl lg:text-15xl xl:text-17xl font-YuGothic font-[1000]`;
+export const MainHeading2 = tw.h1`text-5xl sm:text-7xl md:text-10xl lg:text-12xl xl:text-14xl font-YuGothic font-extrabold`;
+export const MainHeading3 = tw.h1`text-4xl sm:text-6xl md:text-8xl lg:text-10xl xl:text-12xl font-YuGothic font-extrabold`;
+
+export const SubMainHeading = tw.h1`text-3xl sm:text-5xl md:text-7xl lg:text-9xl xl:text-10xl font-YuGothic font-extrabold`;
+export const SubMainHeading2 = tw.h1`text-2xl sm:text-3xl md:text-4xl lg:text-6xl xl:text-8xl font-YuGothic font-extrabold`;
+export const SubMainHeading3 = tw.h1`text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-6xl font-YuGothic font-extrabold`;
+
+export const MainParagraph = tw.p`font-YuGothic font-light text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl`;
+export const MainParagraph2 = tw.p`font-YuGothic font-light text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl`;
+export const MainParagraph3 = tw.p`font-YuGothic font-light text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl`;
+export const MainParagraph4 = tw.p`font-YuGothic font-light text-sm md:text-base lg:text-lg xl:text-xl`;
 
 export const LargerMainParagraph = tw.p`font-roboto font-light text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl`;
 

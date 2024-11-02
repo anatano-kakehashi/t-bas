@@ -14,11 +14,8 @@ export default function FeedbackPage(props){
   return (
     <AnimationRevealPage>
       <Header language = {props.language} />
-
       <TestimonialComponent language = {props.language}/>
-
       <TrialLesson language = {props.language}/>
-      
       <Footer language = {props.language}/>
     </AnimationRevealPage>
   );

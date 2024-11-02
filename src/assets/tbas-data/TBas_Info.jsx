@@ -272,6 +272,9 @@ export const testimonials = [
 export const tutors_list = [
   {
     heading: "講師紹介",
+    eduHeading: "経歴：",
+    subHeading: "担当科目：",
+    comHeading: "コメント：",
     tutors: [
       {
         name: "Teacher _",
@@ -781,5 +784,98 @@ export const faqInfo = [
         answer: "現在、入会金は0円です。"
       }
     ]
+  }
+]
+
+export const contactUsForm = [
+  {
+    heading: "お問い合わせ",
+    required: "必須",
+    send: "送信",
+    successResponse: "お問い合わせありがとうございます！",
+    errorResponse: "フォルムが送信されませんでした。もう一度お願いします！",
+    entryForms: [
+      {
+        entry: "名前（生徒）",
+        example: "例：山田太郎"
+      },
+      {
+        entry: "フリガナ",
+        example: "例：ヤマダタロウ"
+      },
+      {
+        entry: "電話番号",
+        example: "例：000-0000-0000"
+      },
+      {
+        entry: "メールアドレス",
+        example: "例：user@example.jp"
+      },
+      {
+        entry: "学校名",
+        example: "例：T-BAS玉川学園"
+      },
+      {
+        entry: "科目",
+        example: "選択してください",
+        options: [
+          "Pre-MYP", "MYP", "DP"
+        ]
+      },
+      {
+        entry: "学年",
+        example: "例：６年生"
+      },
+      {
+        entry: "お問い合わせ種別",
+        example: "選択してください",
+        options: [
+          "レッスンについて",
+          "料金について",
+          "入塾について"
+        ]
+      },
+      {
+        entry: "お問い合わせ内容",
+        example: "現在の成績・相談内容"
+      }
+    ]
+  }
+]
+
+export const aboutUs = [
+  {
+    heading: "T-BASとは",
+    subHeading: [
+      "T", "amagawa",
+      "B", "est",
+      "A", "fter",
+      "S", "chool"
+    ],
+    textHeading:(
+      <>
+      T-BAS玉川学園は、子供達に玉川学園の地で
+      <HiddenBrSm/>
+      最高の放課後を提供したいという思いを込めた塾です。
+      </>
+    ),
+    textDescription:(
+      <>
+      現在、国内では国際バカロレア認定校が少しずつ増えてきています。 IBは長期的な継続学習が何よりも大切です。毎日の学習をきちんと理解しながらコツコツと積み重ねていくことで、 やがて英語力も含めたDP試験に対応できる大きな力がつきます。そして、学校の成績を出来るだけ高くキープすればするほど大学の推薦入試は有利になります。 また、DPでは理系・文系の両方から６科目を選択する必要があるため、低学年の頃から不得意な科目を作らないようにすることも大切です。
+      <HiddenBrSm/><HiddenBrSm/>
+      T-BASのIBコースのチューター達はIBディプロマを高い点数で取得し、国内や国外の大学受験も成功させています。 IBDPを取得した彼らにしか出来ないサポートが沢山あります。勉強の仕方が分からない、 毎日の学習をしっかり定着させたい、親が教えられず困っている、先取り学習をしたい、DP試験や大学受験対策をしたい、 などなどお困りの事はないでしょうか？お1人お1人のご要望に合ったレッスンをご提案させて頂きますのでどうぞお気軽にご相談下さい。
+      <HiddenBrSm/><HiddenBrSm/>
+      また、一般クラス生のための数学フォローアップコースも併設しました。私は長年に渡る塾講師や某通信教育での数学指導の経験を活かして、 数学で困っているお子様のお力になりたいと思っています。他にも頼もしいチューター達がおりますので、数学が苦手な方や学校の勉強を強化したい方など、基礎力をしっかり着けて自信を持って学習が出来るようにサポートさせて頂きます。
+      <HiddenBrSm/><HiddenBrSm/>
+      小さな塾ですが皆様を心よりお待ちしております。
+      </>
+    ),
+    textClosingQuote: (
+      <>
+      T-BAS玉川学園
+      <HiddenBrSm/>
+      塾長　溝口
+      </>
+    )
   }
 ]

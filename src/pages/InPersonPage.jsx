@@ -4,14 +4,13 @@ import AnimationRevealPage from "helpers/AnimationRevealPage.js";
 
 import Header from "newComponents/headers/Header.jsx";
 import Footer from "newComponents/footer/Footer.jsx";
-import InPersonHeader from 'newComponents/InPerson/1_Hero.jsx';
+import InPersonHeader from 'newComponents/InPerson/Hero.jsx';
 import CoursePlans from 'newComponents/Home/CoursePlans';
 
-import ImportanceHero from 'newComponents/InPerson/2_Importance.jsx';
+import ImportanceHero from 'newComponents/InPerson/Importance.jsx';
 import TrialLesson from 'newComponents/Home/TrialLesson';
 
 export default function AboutPage(props){
-  
   return (
     <AnimationRevealPage>
       <Header language = {props.language} />

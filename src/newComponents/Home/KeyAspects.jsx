@@ -5,34 +5,31 @@ import { css } from "styled-components/macro"; //eslint-disable-line
 
 /* ========= importing assets ============ */
 import {
-    MainHeading2 as MainHeadingTemplate,
+    MainHeading as MainHeadingTemplate,
     SubMainHeading as SubMainHeadingTemplate,
-    MainParagraph2 as MainParagraphTemplate,
-    Container as BaseContainer,
+    MainParagraph3 as MainParagraphTemplate,
     ContentFormatted2 as RowTemplate
   } from "assets/styles/TailwindComponents.jsx";
 
 import { home_keyAspects } from "assets/tbas-data/TBas_Info.jsx";
 
-const Container = tw(BaseContainer)`py-12 lg:px-32`;
-const Wrapper = tw.div`divide-y my-24`;
+const Container = tw(RowTemplate)`py-16`;
+const Wrapper = tw.div`divide-y`;
 const Row = tw(RowTemplate)`flex flex-col md:flex-row justify-between items-center 
-lg:my-32 mx-auto h-112`;
+lg:mb-32 mx-auto h-112`;
 
-const TextColumn = tw.div`
-w-1/2 h-full flex flex-col py-16 pl-16 rounded-l-3xl`;
+const TextColumn = tw.div`w-1/2 h-full flex flex-col pl-16`;
 
-const MainHeading = tw(MainHeadingTemplate)`font-openSans lg:tracking-[3.6px] text-tbasMain-purple900 font-extrabold`;
-const HeadingInfoContainer = tw.div`flex flex-col items-center`;
+const MainHeading = tw(MainHeadingTemplate)`tracking-widest text-tbasMain-purple900 font-extrabold`;
+const HeadingInfoContainer = tw.div`flex flex-col items-center pb-8`;
 
-const Heading = tw(SubMainHeadingTemplate)`text-left text-tbasMain-purple900 lg:tracking-[3.6px] pt-8`;
-const Description = tw(MainParagraphTemplate)`mt-4 text-main-black font-roboto font-light 
+const Heading = tw(SubMainHeadingTemplate)`text-left text-tbasMain-purple900 tracking-widest pt-8`;
+const Description = tw(MainParagraphTemplate)`mt-4 text-main-black font-light 
 lg:max-w-lg`;
 
-const KeyNumber = tw.h1`text-8xl sm:text-9xl md:text-10xl lg:text-11xl xl:text-30xl font-YuGothic font-extrabold tracking-widest text-tbasMain-orange`;
+const KeyNumber = tw.h1`text-8xl sm:text-9xl md:text-10xl lg:text-8xxl xl:text-10xxl font-YuGothic font-extrabold tracking-widest text-tbasMain-orange`;
 
 const ImageColumn = tw.div`w-1/2 h-full flex flex-col items-center justify-center mt-12 px-24`;
-
 const Image = styled.div(props => [
   `background-image: url("${props.imageSrc}");`,
   tw`bg-contain bg-no-repeat bg-center object-center m-auto w-full h-full rounded-r-3xl`
@@ -55,20 +52,17 @@ export default function KeyAspects(props) {
           <Row key={index}>
             <TextColumn>
               {index !== 1 ? <KeyNumber>0{index + 1}</KeyNumber>: <KeyNumber tw="text-tbasMain-lightBlue">0{index + 1}</KeyNumber>}
-              <Heading>
-                {keyaspect.SubHeading}
-              </Heading>
+              <Heading>{keyaspect.SubHeading}</Heading>
               <Description>{keyaspect.Description}</Description>
             </TextColumn>
             {index !== 1 ? 
-            <ImageColumn>
-              <Image imageSrc={keyaspect.ImageUrl} />
-            </ImageColumn>
-            : <ImageColumn tw="px-32">
-              <Image imageSrc={keyaspect.ImageUrl} />
-            </ImageColumn>
+              <ImageColumn>
+                <Image imageSrc={keyaspect.ImageUrl} />
+              </ImageColumn>
+              : <ImageColumn tw="px-32">
+                <Image imageSrc={keyaspect.ImageUrl} />
+              </ImageColumn>
             }
-            
           </Row>
         ))}
       </Wrapper>
