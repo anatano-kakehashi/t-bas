@@ -1,8 +1,8 @@
 import React from 'react';
 
 import AnimationRevealPage from "helpers/AnimationRevealPage.js";
-import Header from "newComponents/headers/Header.jsx";
-import Footer from "newComponents/footer/Footer.jsx";
+import Header from "newComponents/Header/Header.jsx";
+import Footer from "newComponents/Footer/Footer.jsx";
 import AccessInfo from "newComponents/Access/AccessInfo.jsx"
 
 export default function AccessPage(props){

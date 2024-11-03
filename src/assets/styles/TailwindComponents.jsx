@@ -38,7 +38,9 @@ export const HiddenBrLg = tw.br`hidden lg:block xl:hidden`;
 export const HiddenBrLgXl = tw.br`hidden lg:block`;
 export const HiddenBrSm = tw.br`hidden sm:block`;
 export const HiddenBrMd = tw.br`hidden md:block`;
-
+export const HiddenBr_BreakPoint = tw.br`hidden sm:block lg:hidden`;
+export const HiddenBr_BreakPoint2 = tw.br`block lg:hidden`;
+export const HiddenBr_BreakPoint3 = tw.br`block md:hidden`;
 // Used for highlighting certain important text
 export const HightlightedText = tw.span`text-primary-500`
 

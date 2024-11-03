@@ -7,8 +7,8 @@ import KeyAspects from 'newComponents/Home/KeyAspects';
 import CoursePlans from 'newComponents/Home/CoursePlans';
 import StartJourneyHero from 'newComponents/Home/StartJourney';
 import TestimonialComponent from "newComponents/Home/Testimonial.jsx";
-import Header from "newComponents/headers/Header.jsx";
-import Footer from "newComponents/footer/Footer.jsx";
+import Header from "newComponents/Header/Header.jsx";
+import Footer from "newComponents/Footer/Footer.jsx";
 
 import AnimationRevealPage from "helpers/AnimationRevealPage.js";
 

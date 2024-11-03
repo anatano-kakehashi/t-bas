@@ -2,8 +2,8 @@ import React from 'react';
 
 import AnimationRevealPage from "helpers/AnimationRevealPage.js";
 
-import Header from "newComponents/headers/Header.jsx";
-import Footer from "newComponents/footer/Footer.jsx";
+import Header from "newComponents/Header/Header.jsx";
+import Footer from "newComponents/Footer/Footer.jsx";
 
 import TutorsList from "newComponents/Tutors/TutorsList.jsx";
 import AcceptedColleges from "newComponents/Tutors/AcceptedColleges.jsx";

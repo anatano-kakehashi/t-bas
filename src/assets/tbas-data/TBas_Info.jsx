@@ -1,6 +1,6 @@
 import tw from "twin.macro";
 
-import { HiddenBrLgXl, HiddenBr, HiddenBrSm, HiddenBrMd, HiddenBrLg, HiddenBrXl, HightlightedText} from "assets/styles/TailwindComponents.jsx";
+import { HiddenBrLgXl, HiddenBr, HiddenBrSm, HiddenBrMd, HiddenBrLg, HiddenBrXl, HiddenBr_BreakPoint, HiddenBr_BreakPoint2, HiddenBr_BreakPoint3, HightlightedText} from "assets/styles/TailwindComponents.jsx";
 
 import skill1 from "assets/tbas-images/home/HP_01.svg";
 import skill2 from "assets/tbas-images/home/HP_02.svg";
@@ -21,14 +21,18 @@ export const header_footer = [
   {
     links: ["T-BASとは", "コースについて", "対面レッスン", "オンラインレッスン", "講師紹介", "ご利用者の声", "よくあるご質問", "アクセス", "お問い合わせ・相談"],
     endpoints:["aboutTbas", "inPerson", "online", "tutors", "feedback", "faq", "access", "contact"],
-    address: "〒194-0041 東京都町田市玉川学園 2-11-22高橋ビル301",
+    address: (<>〒194-0041 東京都町田市玉川学園 <HiddenBr_BreakPoint2/>2-11-22高橋ビル301</>),
     phone: "TEL/FAX：042-851-8680",
     hours: "電話受付時間：15:00-19:00",
     email: "メール：tbastamagawa@gmail.com"
   },
   {
-    links: ["About T-BAS", "Courses", "In Person", "Online", "Teachers", "Feedback", "FAQ", "Access", "Contact"],
-    endpoints:["aboutTbas", "inPerson", "online", "tutors", "feedback", "faq", "access", "contact"]
+    links: ["About T-BAS", "Courses", "In Person", "Online", "Teachers", "Feedback", "FAQ", "Access", "Contact Us"],
+    endpoints:["aboutTbas", "inPerson", "online", "tutors", "feedback", "faq", "access", "contact"],
+    address: (<>〒194-0041 東京都町田市玉川学園 <HiddenBr_BreakPoint2/>2-11-22高橋ビル301</>),
+    phone: "TEL/FAX：042-851-8680",
+    hours: "Hours：15:00-19:00",
+    email: "Email：tbastamagawa@gmail.com"
   }
 ]
 
@@ -37,17 +41,29 @@ export const home_hero = [
     Heading:(
       <>
         IB学習サポートなら
-        <HiddenBrSm />
+        <br/>
         T-BASへ。
       </>
     ),
     Paragraph:(
       <>
-        IBディプロマを取得した講師たちが教える信頼の塾
+        IBディプロマを取得した講師たちが<HiddenBr />教える信頼の塾
       </>
     )
   },
   {
+    Heading:(
+      <>
+        For IB learning support,
+        <br/>
+        go to T-BAS.
+      </>
+    ),
+    Paragraph:(
+      <>
+        A trusted tutoring center taught by<HiddenBr />instructors who have obtained the IB Diploma.
+      </>
+    )
   }
 ];
 
@@ -57,38 +73,74 @@ export const home_concerns = [
     Skills:[
       <>
         家庭教師だけ
-        <HiddenBrSm />
+        <br/>
         では不安だ
       </>,
       <>
         子供の学習状況が
-        <HiddenBrSm />
+        <br/>
         さっぱり分からない
       </>,
       <>
         IB学習をサポート
-        <HiddenBrSm />
+        <br/>
         してくれるピッタリな
-        <HiddenBrSm />
+        <br/>
         塾が見つからない
       </>,
       <>
         親が勉強を見れなくて
-        <HiddenBrSm />
+        <br/>
         困っている
       </>,
       <>
         オンラインで
-        <HiddenBrSm />
+        <br/>
         習っていたが
-        <HiddenBrSm />
+        <br/>
         成績が上がらなかった
       </>
     ],
-    Subheading:["玉川学園前駅徒歩1分！", "IB専門塾の「T-BAS」にお任せください！"]
+    Subheading:[
+      "玉川学園前駅徒歩1分！", 
+      (<>IB専門塾の「T-BAS」に<HiddenBr/>お任せください！</>)
+    ]
   },
   {
-    
+    Heading:[ "Do you have any of these", " concerns?" ],
+    Skills:[
+      <>
+        I feel uneasy with
+        <br/>
+        just a private tutor
+      </>,
+      <>
+        I have no idea about
+        <br/>
+        my child's learning progress
+      </>,
+      <>
+        I can't find the perfect 
+        <br/>
+        tutoring center that
+        <br/>
+        supports the IB curriculum
+      </>,
+      <>
+        Parents struggle because they
+        <br/>
+        can't help with the child's studies.
+      </>,
+      <>
+        I was learning online, 
+        <br/>
+        but my grades didn’t improve
+      </>
+    ],
+    Subheading:[
+      "1-minute walk from Tamagawa Gakuenmae Station！", 
+      (<>Leave it to T-BAS, the<HiddenBr/>IB specialized tutoring center!</>)
+    ]
   }
 ];
 
@@ -99,7 +151,9 @@ export const home_trialLessons = [
     ActionButton: "お問い合わせ・相談"
   },
   {
-    
+    Heading: [ "Now, we are accepting trial lessons for ", "3,300 yen!" ],
+    Subheading: "Feel free to reach out！",
+    ActionButton: "Contact Us!"
   }
 ];
 
@@ -137,17 +191,49 @@ export const home_keyAspects = [
     ]
   },
   {
-    
+    Heading: "Features of T-BAS",
+    KeyAspects:[
+      {
+        SubHeading: "One-on-one lessons",
+        Description: (<>
+          We provide one-on-one lessons that cater to each individual, 
+          <HiddenBrSm />
+          maximizing their effectiveness and potential.
+        </>),
+        ImageUrl: skill1
+      },
+      {
+        SubHeading: "In-person and online options available",
+        Description: (<>
+          Lessons are available in the classroom after school or on weekends.
+          <HiddenBrSm />
+          Online lessons at home are also offered.
+        </>),
+        ImageUrl: skill2
+      },
+      {
+        SubHeading: "Three courses",
+        Description: (<>
+          We offer three courses: 
+          <HiddenBrSm />
+          Pre-MYP Course, MYP Course, and DP Course.
+        </>),
+        ImageUrl: skill3
+      }
+    ]
   }
 ];
 
 export const startJourneyInfo = [
   {
-    Heading: "玉川学園IBのMYP・DP卒業生が指導",
-    Description: (<>私たち講師陣は生徒1人1人に合ったサポートをご提供します。<HiddenBrSm/>国内外大学の入試対策やエッセイ作成指導も受付中です！</>),
+    Heading: (<>玉川学園IBのMYP・DP<HiddenBr_BreakPoint3 />卒業生が指導</>),
+    Description: (<>私たち講師陣は生徒1人1人に合った<HiddenBr_BreakPoint3 />サポートをご提供します。<br/>国内外大学の入試対策やエッセイ作成指導も<HiddenBr_BreakPoint3 />受付中です！</>),
     Button: "講師紹介"
   },
   {
+    Heading: (<>Instructors are graduates of the <HiddenBr_BreakPoint3 />IB MYP and DP programs from Tamagawa Gakuen.</>),
+    Description: (<>Our instructors provide support tailored to each student. <br/>We also offer assistance with university entrance exam preparation and essay writing for both domestic and international universities!</>),
+    Button: "Instructor Introductions"
   }
 ];
 
@@ -201,6 +287,52 @@ export const courseInfo = [
     Button2: "オンラインレッスン"
   },
   {
+    Heading: "Course Introductions",
+    Courses:[
+      {
+        SubHeading: "Pre-MYP",
+        Features: [
+          "Targeting 5th-grade students (entrance selection applies)",
+          (<>
+            Advance learning of MYP skills 
+            <HiddenBrSm />
+            starting from 6th grade.
+          </>),
+          (<>
+            Limited to children who are 
+            <HiddenBrSm />
+            comfortable with their school learning.
+          </>)
+        ]
+      },
+      {
+        SubHeading: "MYP",
+        Features: [
+          (<>
+            Thorough instruction on 
+            <HiddenBrSm />
+            skills for improving grades.
+          </>),
+          "Comprehensive support",
+          "Develop skills that are applicable in the DP (Diploma Programme)."
+        ]
+      },
+      {
+        SubHeading: "DP",
+        Features: [
+          "DP Learning & Life Support",
+          "DP Exam Preparation Guidance",
+          "Guidance for EE (Extended Essay) and IA (Internal Assessment)",
+          (<>
+            University entrance exam advice and 
+            <HiddenBrSm />
+            guidance for application essays
+          </>)
+        ]
+      }
+    ],
+    Button1: "In-person lessons",
+    Button2: "Online lessons"
   }
 ];
 
@@ -264,10 +396,64 @@ export const testimonials = [
     ]
   },
   {
-
+    heading: "Testimonials",
+    learnMore: "See more",
+    reviews: [
+      {
+        subHeading: "I have been attending this tutoring center for a long time, and it has really helped me.",
+        description: "I have been attending since the school first opened, and honestly, at first, it was at my parents' insistence. It has been three years, and I have truly benefited from this school. Now, my child has changed their attitude and expresses a desire to go and learn from the teachers. Although it can be difficult to ask questions in front of subject teachers, my child can comfortably ask questions to the familiar teachers at this school without feeling ashamed of what they don't understand, allowing them to ask until they achieve a deep understanding. While online lessons are also available, in-person interaction is definitely beneficial. I look forward to continuing this relationship in the future."
+      },
+      {
+        subHeading: "If I hadn't joined, I might have ended up failing.",
+        description: "Thank you very much for all your help. I am grateful to the teachers, who are my seniors, for teaching me practical wisdom about the IB. If I had remained unaware, I might have ended up failing. I sincerely appreciate being saved by the principal’s appropriate advice. I am also thankful for being informed about the designated school recommendation pathway, which helped me find the university I want to attend. Thank you very much for all the guidance you provided."
+      },
+      {
+        subHeading: "I have been able to achieve good results in the exams, gradually overcoming my weak subjects.",
+        description: "Thanks to your support, my grades this semester have improved. In Math, my efforts have paid off, and I seem to be stabilizing. I have achieved good results in the exam, gradually overcoming my weak subjects. This has certainly translated into confidence and motivation for advancing to the next grade. Once again, I sincerely appreciate your warm support."
+      },
+      {
+        subHeading: "I have been able to gain confidence and reassurance.",
+        description: "Thank you for your continued support. The IB assessments can often be difficult for parents to understand, and I am very grateful for T-BAS's assistance. Recently, seniors who have graduated from the IB program have been providing guidance from the students' perspective, which has contributed to my child's confidence and reassurance. The support with homework, review before exams, and preparation for the curriculum has been especially helpful. I look forward to your continued support."
+      },
+      {
+        subHeading: "Stability in both academic performance and mental well-being!",
+        description: "️It has been almost two years since I first received help from a teacher to overcome my difficulties with Math. Even after the transition to a new teacher who became my mentor for DP preparation, both my academic performance and mental state have stabilized, and most importantly, the anxiety and frustration I felt as a parent have disappeared. I am particularly grateful for the improvement in time management and my ability to engage with a sense of ownership. With the guidance of teachers who serve as close role models, I believe my child has become more capable of envisioning the entrance exams and further learning. Thank you for your continued support until the end."
+      },
+      {
+        subHeading: "My school life has become more fulfilling.",
+        description: "️Thanks to T-BAS, I believe my grades have improved from the uncertain state I was in as a 7th grader, leading to a fulfilling school life. I would like to express my gratitude to the principal and all the teachers who have guided me. I hope to leverage my experiences and do well in my studies abroad! Thank you very much!"
+      },
+      {
+        subHeading: "The guidance from the assigned teacher is a perfect match.",
+        description: "My daughter has only had a few sessions, but she seems to have a very positive impression, and I am grateful for that. It seems that the guidance from her assigned teacher is a great fit. From my perspective, the principal's heartfelt counseling during our first meeting, where we reviewed her report card, was a major deciding factor in our choice to enroll. I sincerely hope that many excellent teachers will continue to be available and that you will continue to thrive!"
+      },
+      {
+        subHeading: "A one-on-one environment for learning is great.",
+        description: "I am very grateful for the environment at T-BAS, where I can work one-on-one with my assigned teacher in accordance with the school's curriculum. It is a wonderful environment that allows me to address any questions without leaving them unresolved!"
+      },
+      {
+        subHeading: "My grades have improved!",
+        description: "I am grateful for the support provided during the summer vacation. My child mentioned that the instruction was enthusiastic and that they enjoyed the conversations as well. Thanks to your guidance, the subjects taught have seen an improvement in grades, and I truly appreciate it."
+      },
+      {
+        subHeading: "Going to T-BAS is fun!",
+        description: "Thank you for your support today as well. My child says, 'Going to T-BAS is fun,' thanks to the safe environment and the teachers. Thank you very much."
+      },
+      {
+        subHeading: "I feel my growth every day.",
+        description: "Thank you for your constant guidance. Thanks to the teachers' instruction, I am feeling my growth every day in terms of study methods and expressing my own opinions. I am very grateful. I want to study diligently during the summer vacation as well, so I appreciate your support."
+      },
+      {
+        subHeading: "I have come to understand the lessons better.",
+        description: "Since I started receiving support at the tutoring center, I have come to understand the lessons better, and I've learned the joy of studying IB education, leading to fulfilling days."
+      },
+      {
+        subHeading: "Attending T-BAS has directly increased my confidence and motivation for advancing to the next grade.",
+        description: "Thanks to your support, my grades this semester have improved. In Math, my efforts have paid off, and I seem to be stabilizing. I have achieved good results in the exam, gradually overcoming my weak subjects. This has certainly translated into confidence and motivation for advancing to the next grade. Once again, I sincerely appreciate your warm support."
+      }
+    ]
   }
 ];
-
 
 export const tutors_list = [
   {
@@ -380,18 +566,6 @@ export const tutors_list = [
           "海外IB卒(IBDP取得済)"
         ],
         subjects: [
-          "DP", "EP", "MYP"
-        ],
-        comment: "こんにちは！私は海外のIBディプロマを取得しました。そこで学んだ経験を活かし、勉学のみならず海外入試や進学後の生活などの面でも生徒さん達をサポートできます。どうぞよろしくお願いします。"
-      },
-      {
-        name: "Teacher _",
-        gender: "Female",
-        education: [
-          "上智大学法学部",
-          "海外IB卒(IBDP取得済)"
-        ],
-        subjects: [
           "DP", "EP", "MYP", "MathAA(SL)", "Chem(SL)"
         ],
         comment: "こんにちは！私は海外のIBディプロマを取得しました。そこで学んだ経験を活かし、勉学のみならず海外入試や進学後の生活などの面でも生徒さん達をサポートできます。どうぞよろしくお願いします。"
@@ -401,12 +575,12 @@ export const tutors_list = [
         gender: "Female",
         education: [
           "ハワイ大学",
-          "Tokyo West International School → Tamagawa Academy IB（IBDP取得済）"
+          "東京ウエストインターナショナルスクール → 玉川IB卒（IBDP取得済）"
         ],
         subjects: [
           "Biology", "English A", "EP", "History", "Japanese", "Math(AI)", "MYP"
         ],
-        comment: "I’m bilingual in English and Japanese and a graduate of the IB MYP and DP program. I look forward to teaching all of you. If you have any questions, feel free to ask me anything!!"
+        comment: "私は英語と日本語のバイリンガルで、IBのMYPおよびDPプログラムを卒業しました。皆さんに教えることを楽しみにしています。質問があれば、何でも気軽に聞いてください！"
       },
       {
         name: "Teacher _",
@@ -442,6 +616,169 @@ export const tutors_list = [
           "MathAA(SL)", "MYP", "Bio(HL)"
         ],
         comment: "こんにちは！僕は生徒さんに寄り添い、勉強が苦にならないよう楽しく授業するのがモットーです！よろしくお願いいたします！"
+      }
+    ]
+  },
+  {
+    heading: "Instructor Introductions",
+    eduHeading: "Background：",
+    subHeading: "Subjects Taught:",
+    comHeading: "Comments：",
+    tutors: [
+      {
+        name: "Teacher _",
+        gender: "Male",
+        education: [
+          "Sophia University, Faculty of Economics.",
+          "Tamagawa IB graduate (IBDP obtained)"
+        ],
+        subjects: [
+          "EP", "MYP", "DP"
+        ],
+        comment: "I entered the IB course without being particularly good at English, but ultimately I was able to achieve a solid DP score. I hope to use this experience to help students in their IB lives. In my personal opinion, even if you struggle with English, you can achieve great results in the IB with effort and personal growth!"
+      },
+      {
+        name: "Teacher _",
+        gender: "Male",
+        education: [
+          "University of Toronto",
+          "Tamagawa IB graduate (IBDP obtained)",
+          "Experience studying abroad in New Zealand"
+        ],
+        subjects: [
+          "Chem(SL)", "Econ(SL)", "Math(HL)", "Phy(SL)"
+        ],
+        comment: "Hello. Having experienced the IB program, I learned a lot not only academically but also in various other aspects, so I hope to provide advice on exam strategies and mindset beyond just studying. My strong subject is mathematics, and I took Math HL. The IB may be challenging, but let's work hard together!"
+      },
+      {
+        name: "Teacher _",
+        gender: "Female",
+        education: [
+          "Temple University",
+          "Tamagawa IB graduate (IBDP obtained)"
+        ],
+        subjects: [
+          "Art", "CAS Support", "EE", "EP", "MYP", "TOK"
+        ],
+        comment: "I entered the Temple University Japan Campus and am currently majoring in International Studies and Political Science. This year marks my third year as an instructor at T-BAS, where I primarily support MYP students but also assist students across various subjects, whether in the humanities or sciences. For DP students, I mainly focus on guidance in art, CAS, EE, and TOK. Our tutoring center has a team of instructors with rich experience and knowledge waiting for you. Please feel free to come for a trial lesson."
+      },
+      {
+        name: "Teacher _",
+        gender: "Female",
+        education: [
+          "International Christian University."
+        ],
+        subjects: [
+          "EP", "MYP", "DP", "Econ(HL)", "MathAA(SL)"
+        ],
+        comment: "I excel in subjects like I&S and economics. Rather than simply providing answers, I focus on drawing out each student's understanding in a way that reflects the IB philosophy. I aim to support learning not only for the tasks at hand but also with consideration for the MYP, DP, and beyond!"
+      },
+      {
+        name: "Teacher _",
+        gender: "Female",
+        education: [
+          "Waseda University, School of International Program"
+        ],
+        subjects: [
+          "EP", "MYP", "DP", "Econ(HL)", "MathAA(SL)"
+        ],
+        comment: "英語のスキルがゼロに近いところからMYPに入り言語の壁や課題に苦戦しましたが、試行錯誤を繰り返したIBの生活はとても充実していて成長できたと感じています。IBで培ったスキルや経験を生かして、英語の勉強や日々の学習をサポートできるように勤めてまいります。T-BASで皆さんにお会いできることを楽しみにしております。"
+      },
+      {
+        name: "Teacher _",
+        gender: "Male",
+        education: [
+          "Keio University, Faculty of Policy Management",
+          "Tamagawa IB graduate (IBDP obtained)",
+          "Studied abroad in Australia"
+        ],
+        subjects: [
+          "EnglishB(HL)", "EP", "JapaneseA(HL)", "Math(MYP)", "MYP"
+        ],
+        comment: "I entered the MYP without any overseas experience, but I have felt my English skills grow through daily studies and studying abroad. In addition to daily learning support, I will do my best to utilize my experiences from the IB for recommendations and English proficiency exam preparation. I look forward to working with you!"
+      },
+      {
+        name: "Teacher _",
+        gender: "Male",
+        education: [
+          "University of Toronto"
+        ],
+        subjects: [
+          "MathAA(HL)", "Phy(HL)", "Chem(SL)"
+        ],
+        comment: "I am majoring in Aerospace Engineering within the Engineering Science program at the Faculty of Applied Science and Engineering at the University of Toronto. I use an intuitive approach to explain theories in all STEM subjects except biology, aiming to make my classes as enjoyable as possible! I look forward to working with you!"
+      },
+      {
+        name: "Teacher _",
+        gender: "Male",
+        education: [
+          "University of Edinburgh",
+          "Tamagawa IB graduate (IBDP obtained)",
+          "Studied abroad in the UK"
+        ],
+        subjects: [
+          "Core", "EnglishA/B", "EP", "History", "I＆S", "JapaneseA/B", "MYP"
+        ],
+        comment: "After advancing to the Faculty of Letters at Keio University, I am now majoring in English Literature at the University of Edinburgh. I can teach a wide range of students, focusing on English and Japanese. I also have extensive knowledge of both domestic and overseas entrance exams. I look forward to seeing you in a trial lesson!"
+      },
+      {
+        name: "Teacher _",
+        gender: "Female",
+        education: [
+          "Sophia University, Faculty of Law",
+          "Graduated from an overseas IB program (IBDP completed)"
+        ],
+        subjects: [
+          "DP", "EP", "MYP", "MathAA(SL)", "Chem(SL)"
+        ],
+        comment: "Hello! I obtained my IB Diploma overseas. I can use my experiences to support students not only in their studies but also with overseas entrance exams and life after advancing to university. I look forward to working with you!"
+      },
+      {
+        name: "Teacher _",
+        gender: "Female",
+        education: [
+          "University of Hawaii",
+          "Tokyo West International School → Tamagawa Academy IB(IBDP completed)"
+        ],
+        subjects: [
+          "Biology", "English A", "EP", "History", "Japanese", "Math(AI)", "MYP"
+        ],
+        comment: "I’m bilingual in English and Japanese and a graduate of the IB MYP and DP program. I look forward to teaching all of you. If you have any questions, feel free to ask me anything!!"
+      },
+      {
+        name: "Teacher _",
+        gender: "Male",
+        education: [
+          "International Christian University (ICU)"
+        ],
+        subjects: [
+          "MYP", "DP", "Bio(HL)", "Econ(HL)"
+        ],
+        comment: "During my first year of middle school, my English skills were so low that I failed the Eiken Level 5 exam, but in the end, I was able to complete the DP with decent grades. Surrounded by highly skilled students with rich overseas experience, there were many times I thought about quitting the IB. However, I’m glad I persevered until the end. I believe that if you put in the effort, results will eventually come. I hope to help improve those results, so let’s work hard together!"
+      },
+      {
+        name: "Teacher _",
+        gender: "Male",
+        education: [
+          "Sophia University, Faculty of Law",
+          "Graduated from Kaichi Nihonbashi High School with an IB Diploma (IBDP completed)"
+        ],
+        subjects: [
+          "MathAA(SL)", "MYP"
+        ],
+        comment: "Hello! My motto is to support students and make learning enjoyable so that it doesn’t feel burdensome. I look forward to working with you!"
+      },
+      {
+        name: "Teacher _",
+        gender: "Male",
+        education: [
+          "Sophia University, Faculty of Law",
+          "Tamagawa IB graduate (IBDP obtained)"
+        ],
+        subjects: [
+          "MathAA(SL)", "MYP", "Bio(HL)"
+        ],
+        comment: "Hello! My motto is to support students and make learning enjoyable so that it doesn’t feel burdensome. I look forward to working with you!"
       }
     ]
   }
@@ -486,6 +823,45 @@ export const tutors_acceptance = [
       "グリフィス大学"
     ],
     closer: "他多数"
+  },
+  {
+    heading: "University acceptance records of instructors",
+    colleges: [
+      "Keio University, Faculty of Letters",
+      "Keio University, Faculty of Policy Management (English Degree)",
+      "Waseda University, School of International Program",
+      "Waseda University, Faculty of Social Sciences (English Degree)",
+      "Kagoshima University, Faculty of Medicine",
+      "Keio University, Faculty of Economics (English Degree)",
+      "Sophia University, School of International and Cultural Studies",
+      "Sophia University, Faculty of Economics",
+      "Sophia University, Faculty of Law, Department of International Relations",
+      "Sophia University, Faculty of Global Studies",
+      "Sophia University, Faculty of Foreign Languages, Department of English",
+      "International Christian University (ICU)",
+      "Rikkyo University, Faculty of Intercultural Communication",
+      "Rikkyo University, GLAP",
+      "Rikkyo University, Faculty of Law, Department of International Business Law",
+      "Hosei University, Faculty of Economics, Department of ,International Economics",
+      "Temple University, Japan Campus",
+      "University of Edinburgh",
+      "University of Birmingham",
+      "Durham University",
+      "University of Toronto",
+      "McGill University",
+      "University of British Columbia",
+      "University of Alberta",
+      "University of Washington",
+      "New York University",
+      "University of Southern California",
+      "University of California",
+      "University of Hawaii",
+      "University of Queensland",
+      "University of Melbourne",
+      "University of Auckland",
+      "Griffith University"
+    ],
+    closer: "and more"
   }
 ]
 
@@ -494,6 +870,10 @@ export const lessons = [
   {
     InPersonHeading: "対面レッスン",
     OnlineHeading: "オンラインレッスン"
+  },
+  {
+    InPersonHeading: "In-Person Lessons",
+    OnlineHeading: "Online Lessons"
   }
 ];
 
@@ -504,7 +884,7 @@ export const inPerson_WhySelect = [
       {
         SubHeading: (<>
           玉川学園IB生に
-          <HiddenBrSm />
+          <br />
           ぴったりな塾
         </>),
         Description: "T-BASは玉川学園IBに特化した塾です。優秀な玉川学園IBを卒業した講師が沢山在籍しているので、主要科目の勉強だけでないトータルサポートが可能です。海外IBや他校IB卒の優秀な講師も在籍。幅広い指導の提供をしています。",
@@ -513,7 +893,7 @@ export const inPerson_WhySelect = [
       {
         SubHeading: (<>
           マンツーマンの
-          <HiddenBrSm />
+          <br />
           対面レッスン
         </>),
         Description: "何と言っても1:1の対面レッスンに勝るものはありません。T-BASではカフェなどと違い学習環境の整った教室で集中してレッスンが出来ますので自信を持ってお勧めします。",
@@ -522,9 +902,9 @@ export const inPerson_WhySelect = [
       {
         SubHeading: (<>
           駅ちか！
-          <HiddenBrSm />
+          <br />
           学校帰りに
-          <HiddenBrSm />
+          <br />
           立ち寄れる
         </>),
         Description: "玉川学園前駅北口から徒歩１分！こんなに便利で落ち着いた学習環境を提供できるのはT-BASだけです！",
@@ -533,9 +913,9 @@ export const inPerson_WhySelect = [
       {
         SubHeading: (<>
           実績：入塾後の
-          <HiddenBrSm />
+          <br />
           スコアアップ率
-          <HiddenBrSm />
+          <br />
           驚異の98.5%！
         </>),
         Description: "T-BASでは、学習のコツを指導するだけでなく、IB生に必要なタイムマネージメントの力をつけていきます。課題は時間をかけて質の高いものを作り上げるように意識を高めていきます。",
@@ -544,7 +924,7 @@ export const inPerson_WhySelect = [
       {
         SubHeading: (<>
           サポートが
-          <HiddenBrSm />
+          <br />
           すごい！
         </>),
         Description: "T-BASは塾長がいるので、生徒も保護者も日頃から何でも気軽に相談することが出来ます。自信を持って楽しく学習が出来るようにサポートします。塾長は「保護者＆生徒＆講師」を連携させて質の高い授業を提供するように講師を導きます。また、プレMYP/MYPコースはレッスンの学習報告も閲覧できるので学習状況が分かり保護者も安心です。",
@@ -553,6 +933,63 @@ export const inPerson_WhySelect = [
       {
         SubHeading: "講師がすごい！",
         Description: "T-BASの講師はほとんどが早慶上智ICU立教やトロント大学など難関大学に通っています。高いGPAとIBDPハイスコアの成績優秀な講師が在籍しています。彼らは成績を取る方法を熟知しているので是非レッスンでコツを掴んで下さい！",
+        ImageUrl: teachers
+      }
+    ]
+  },
+  {
+    Heading: "Six Reasons to Join T-BAS",
+    Reasons:[
+      {
+        SubHeading: (<>
+          A Perfect Tutoring Center for 
+          <br />
+          Tamagawa Gakuen IB Students
+        </>),
+        Description: "T-BAS is a cram school specializing in Tamagawa Gakuen IB. We have many excellent instructors who have graduated from Tamagawa Gakuen IB, enabling us to provide comprehensive support beyond just major subjects. We also have outstanding instructors who graduated from overseas IB programs and other IB schools, allowing us to offer a wide range of guidance.",
+        ImageUrl: teach1
+      },
+      {
+        SubHeading: (<>
+          One-on-one 
+          <br />
+          in-person lessons
+        </>),
+        Description: "Nothing beats one-on-one in-person lessons. At T-BAS, you can focus on your lessons in a well-equipped classroom, unlike in cafes, so I confidently recommend it.",
+        ImageUrl: teach2
+      },
+      {
+        SubHeading: (<>
+          Conveniently located near the station!
+          <br />
+          Perfect for stopping by after school.
+        </>),
+        Description: "Just a one-minute walk from the North Exit of Tamagawa Gakuen-mae Station! T-BAS is the only place that can offer such a convenient and calm learning environment!",
+        ImageUrl: walk
+      },
+      {
+        SubHeading: (<>
+          Achievements: An astonishing 
+          <br />
+          98.5% score improvement
+          <br />
+          rate after joining!
+        </>),
+        Description: "At T-BAS, we not only teach study techniques but also help IB students develop essential time management skills. We encourage students to invest time in creating high-quality assignments.",
+        ImageUrl: stats
+      },
+      {
+        SubHeading: (<>
+          The support is 
+          <br />
+          amazing!
+        </>),
+        Description: "T-BAS has a director, making it easy for both students and parents to consult about anything at any time. We provide support to ensure that students can learn confidently and enjoyably. The director guides the instructors to deliver high-quality lessons by fostering collaboration between parents, students, and teachers. Additionally, in the pre-MYP/MYP courses, parents can view lesson progress reports, giving them insight into their child's learning status for peace of mind.",
+        ImageUrl: teacher1
+      },
+      {
+        SubHeading: "The instructors are amazing!",
+        Description: "Most of the instructors at T-BAS attend prestigious universities such as Waseda, Keio, Sophia, ICU, Rikkyo, and the University of Toronto. Our instructors have high GPAs and impressive IBDP scores. They are well-versed in effective study methods, so be sure to learn their tips during lessons!",
         ImageUrl: teachers
       }
     ]
@@ -566,7 +1003,7 @@ export const online_WhySelect = [
       {
         SubHeading: (<>
           玉川学園IB生に
-          <HiddenBrSm />
+          <br />
           ぴったりな塾
         </>),
         Description: "T-BASは玉川学園IBに特化した塾です。優秀な玉川学園IBを卒業した講師が沢山在籍しているので、主要科目の勉強だけでないトータルサポートが可能です。海外IBや他校IB卒の優秀な講師も在籍。幅広い指導の提供をしています。",
@@ -575,7 +1012,7 @@ export const online_WhySelect = [
       {
         SubHeading: (<>
           マンツーマン
-          <HiddenBrSm />
+          <br />
           レッスン
         </>),
         Description: "1:1で講師と対話しながらのレッスンなのでレッスン最後まで集中することが出来ます。お子様の理解度に合わせた丁寧な指導で成績アップを目指します。",
@@ -584,7 +1021,7 @@ export const online_WhySelect = [
       {
         SubHeading: (<>
           オンライン
-          <HiddenBrSm />
+          <br />
           レッスン
         </>),
         Description: "自宅で気軽にレッスンが出来ます。家が遠かったり部活や習い事が毎日のようにある方には、負担が少なくコンスタントに学習を進めることが出来るのでお勧めの学習スタイルです。",
@@ -593,9 +1030,9 @@ export const online_WhySelect = [
       {
         SubHeading: (<>
           実績：入塾後の
-          <HiddenBrSm />
+          <br />
           スコアアップ率
-          <HiddenBrSm />
+          <br />
           驚異の98.5%！
         </>),
         Description: "T-BASでは、学習のコツを指導するだけでなく、IB生に必要なタイムマネージメントの力をつけていきます。課題は時間をかけて質の高いものを作り上げるように意識を高めていきます。",
@@ -604,7 +1041,7 @@ export const online_WhySelect = [
       {
         SubHeading: (<>
           サポートが
-          <HiddenBrSm />
+          <br />
           すごい！
         </>),
         Description: "T-BASは塾長がいるので、生徒も保護者も日頃から何でも気軽に相談することが出来ます。塾長は「保護者＆生徒＆講師」を連携させて質の高い授業を提供するように講師を導きます。また、レッスンの学習報告も閲覧できるのでお子様の様子が分かり保護者も安心です。",
@@ -613,6 +1050,63 @@ export const online_WhySelect = [
       {
         SubHeading: "講師がすごい！",
         Description: "T-BASの講師はほとんどが早慶上智ICU立教やトロント大学など難関大学に通っています。高いGPAとIBDPハイスコアの成績優秀な講師が在籍しています。彼らは成績を取る方法を熟知しているので是非レッスンでコツを掴んで下さい！",
+        ImageUrl: teachers
+      }
+    ]
+  },
+  {
+    Heading: "Six Reasons to Join T-BAS",
+    Reasons:[
+      {
+        SubHeading: (<>
+          A Perfect Tutoring Center for 
+          <br />
+          Tamagawa Gakuen IB Students
+        </>),
+        Description: "T-BAS is a cram school specializing in Tamagawa Gakuen IB. We have many excellent instructors who have graduated from Tamagawa Gakuen IB, enabling us to provide comprehensive support beyond just major subjects. We also have outstanding instructors who graduated from overseas IB programs and other IB schools, allowing us to offer a wide range of guidance.",
+        ImageUrl: teach1
+      },
+      {
+        SubHeading: (<>
+          One-on-one
+          <br />
+          lessons
+        </>),
+        Description: "With one-on-one lessons, students can engage in dialogue with the instructor, allowing them to maintain focus throughout the session. We provide careful instruction tailored to each child's understanding, aiming for improved academic performance.",
+        ImageUrl: teach2
+      },
+      {
+        SubHeading: (<>
+          Online
+          <br />
+          lessons
+        </>),
+        Description: "You can easily have lessons from the comfort of your home. For those who live far away or have daily extracurricular activities, this learning style is recommended as it minimizes the burden and allows for consistent progress in studies.",
+        ImageUrl: online
+      },
+      {
+        SubHeading: (<>
+          Achievements: An astonishing 
+          <br />
+          98.5% score improvement
+          <br />
+          rate after joining!
+        </>),
+        Description: "At T-BAS, we not only teach study techniques but also help IB students develop essential time management skills. We encourage students to invest time in creating high-quality assignments.",
+        ImageUrl: stats
+      },
+      {
+        SubHeading: (<>
+          The support is 
+          <br />
+          amazing!
+        </>),
+        Description: "T-BAS has a director, making it easy for both students and parents to consult about anything at any time. We provide support to ensure that students can learn confidently and enjoyably. The director guides the instructors to deliver high-quality lessons by fostering collaboration between parents, students, and teachers. Additionally, in the pre-MYP/MYP courses, parents can view lesson progress reports, giving them insight into their child's learning status for peace of mind.",
+        ImageUrl: hand
+      },
+      {
+        SubHeading: "The instructors are amazing!",
+        Description: "Most of the instructors at T-BAS attend prestigious universities such as Waseda, Keio, Sophia, ICU, Rikkyo, and the University of Toronto. Our instructors have high GPAs and impressive IBDP scores. They are well-versed in effective study methods, so be sure to learn their tips during lessons!",
         ImageUrl: teachers
       }
     ]
@@ -625,22 +1119,47 @@ export const access = [
     heading: "アクセス",
     subHeading: (<>
       T-BAS玉川学園
-      <HiddenBrSm />
+      <br />
       〒194-0041 東京都町田市玉川学園2-11-22高橋ビル301
     </>),
     instructions:[
       (<>
         玉川学園前駅北口の階段を下りて目の前の信号を渡ります。
-        <HiddenBrSm />
+        <br />
         （スーパー三和側の出口です）
       </>),
       (<>
         左に少し進むと右手に1階が床屋さんの建物
-        <HiddenBrSm />
+        <br />
         （高橋ビル）があります。
       </>),
       (<>
-        3階301号室がT-BAS玉川学園です。(駅から徒歩1分です)
+        3階301号室がT-BAS玉川学園です。（駅から徒歩1分です）
+      </>)
+    ]
+  },
+  {
+    heading: "Access",
+    subHeading: (<>
+      T-BAS玉川学園
+      <br />
+      〒194-0041 東京都町田市玉川学園2-11-22高橋ビル301
+    </>),
+    instructions:[
+      (<>
+        Descend the stairs from the North Exit of Tamagawa Gakuen-mae Station and cross the traffic light right in front of you.
+        <br />
+        （This is the exit by the Sanwa supermarket）
+      </>),
+      (<>
+        If you walk a little to the left, you'll see a building with a barber shop on the first floor to your right.
+        <br />
+        （This is the Takahashi Building）
+      </>),
+      (<>
+        T-BAS Tamagawa Gakuen is located in Room 301 on the 3rd floor of the Takahashi Building.
+        <br />
+        （It’s a 1-minute walk from the station.）
       </>)
     ]
   }
@@ -730,7 +1249,7 @@ export const faqInfo = [
           ]
         },
         onlineTable: {
-          heading: "オンラインレッスン",
+          heading: (<>オンライン<HiddenBr/>レッスン</>),
           priceSuffix: "円(税別)/時間",
           courses:[
             {
@@ -782,6 +1301,143 @@ export const faqInfo = [
       {
         question: "入会金はいくらでしょうか？",
         answer: "現在、入会金は0円です。"
+      }
+    ]
+  },
+  {
+    heading: "FAQs",
+    subHeaders:[
+      "About Lessons",
+      "About Pricing",
+      "About Enrollment"
+    ],
+    lesson:[
+      {
+        question: "Do you offer trial lessons?",
+        answer: "Yes, you can take a trial lesson for 3,300 yen per hour."
+      },
+      {
+        question: "Please tell me about the lesson formats.",
+        answer: (<>It’s a complete one-on-one lesson format. Each instructor is assigned to a specific student.<HiddenBrSm/>
+                We offer both in-person and online lessons.<HiddenBrSm/>
+                You can schedule lessons at least once a week, and you can choose the frequency that suits you best.<HiddenBrSm/>
+                The duration of each lesson can be more than one hour, and you can choose the time that works best for you.
+                </>)
+      },
+      {
+        question: "Can I reschedule lessons?",
+        answer: (<>If you contact us by 7 PM the night before, you can reschedule for a later date.<HiddenBrSm/>
+                Rescheduled lessons may be conducted as online lessons or may involve a different instructor.<HiddenBrSm/>
+                The rescheduling deadline is set for the end of March at the end of the school year.
+                </>)
+      },
+      {
+        question: "What kind of teachers will be teaching?",
+        answer: (<>IBコースは全員がIBDP取得済みの講師です。<HiddenBrSm/>
+                Among them, many instructors are top-performing graduates from Tamagawa Gakuen IB.<HiddenBrSm/>
+                Furthermore, T-BAS instructors receive guidance and training from the director, ensuring high-quality lessons.
+                </>)
+      },
+      {
+        question: "Can I switch to online lessons on days when I can't go to the cram school?",
+        answer: "Yes, you can change to online lessons at any time if you contact us. Please note that we cannot refund the difference in fees."
+      },
+      {
+        question: "I have accumulated rescheduled lessons...",
+        answer: "You can also have intensive lessons during school breaks, such as summer and spring vacations, so rest assured."
+      }
+    ],
+    price:[
+      {
+        question: "How much is the trial lesson?",
+        answer: "Both in-person lessons and online lessons are 3,300 yen for one hour."
+      },
+      {
+        question: "How much is the tuition fee?",
+        answer: "The current base fees are as follows.",
+
+        // add code for table
+        inPersonTable: {
+          heading: "In-Person Lessons",
+          keyNote: "※An additional equipment usage fee of 1,100 yen per month is required.",
+          priceSuffix: "Yen (excluding tax) / hour",
+          courses:[
+            {
+              heading: "Pre-MYP",
+              stdPriceHeading: "Regular fee",
+              stdPrice: "7000",
+              dealPriceHeading: "For 3 hours or more per week",
+              dealPrice: "6500"
+            },
+            {
+              heading: "MYP",
+              stdPriceHeading: "Regular fee",
+              stdPrice: "7000",
+              dealPriceHeading: "For 3 hours or more per week",
+              dealPrice: "6500"
+            },
+            {
+              heading: "DP",
+              stdPriceHeading: "Regular fee",
+              stdPrice: "7500",
+              dealPriceHeading: "For 3 hours or more per week",
+              dealPrice: "7400"
+            }
+          ]
+        },
+        onlineTable: {
+          heading: (<>Online<HiddenBr/>Lessons</>),
+          priceSuffix: "Yen (excluding tax) / hour",
+          courses:[
+            {
+              heading: "MYP",
+              stdPriceHeading: "Regular fee",
+              stdPrice: "6000"
+            },
+            {
+              heading: "DP",
+              stdPriceHeading: "Regular fee",
+              stdPrice: "6000"
+            }
+          ]
+        }
+      },
+      {
+        question: "Are there any additional fees for in-person lessons besides the tuition and facility usage fee?",
+        answer: (<>There are none. T-BAS does not incur transportation costs for the instructor or café expenses, <HiddenBrSm/>
+                making it a cost-effective tutoring service where you can take in-person lessons at a location close to the station for less than others.
+                </>)
+      },
+      {
+        question: "Are there any fees for regular consultations?",
+        answer: (<>Consultations with the director of the tutoring center are completely free of charge. Please feel free to reach out with any questions. <HiddenBrSm/>
+                However, essay preparation and other services provided by instructors will incur the same fees as the regular tuition.
+                </>)
+      },
+      {
+        question: "What are the payment methods for tuition fees?",
+        answer: (<> We ask that payments be made via bank transfer each month. <HiddenBrSm/>
+         We will notify you at the end of the previous month or at the beginning of the current month for the transfer.
+          </>)
+      }
+    ],
+    join:[
+      {
+        question: "Is there an entrance exam?",
+        answer: (<>The Pre-MYP course has an admission selection process. <HiddenBrSm/>
+                There is no test, but we evaluate based on school grades and English proficiency.
+                </>)
+      },
+      {
+        question: "Please tell me the process for enrollment.",
+        answer: (<>First, please let us know your requests by phone or email. <HiddenBrSm/>
+          If you wish, you can take a trial lesson (1 hour for 3,300 yen) or have a meeting with the director (free of charge).<HiddenBrSm/>
+          After that, lessons will start as soon as the schedule and instructor are determined.
+          </>)
+      },
+      {
+        question: "How much is the enrollment fee?",
+        answer: "Currently, the enrollment fee is 0 yen."
       }
     ]
   }
@@ -840,6 +1496,59 @@ export const contactUsForm = [
         example: "現在の成績・相談内容"
       }
     ]
+  },
+  {
+    heading: "Contact Us.",
+    required: "Required",
+    send: "Send",
+    successResponse: "Thank you for your inquiry!",
+    errorResponse: "The form was not sent. Please try again!",
+    entryForms: [
+      {
+        entry: "Name (Student)",
+        example: "Example: Taro Yamada"
+      },
+      {
+        entry: "Furigana (pronunciation guide)",
+        example: "Example: Taro Yamada"
+      },
+      {
+        entry: "Phone Number",
+        example: "Example: 000-0000-0000"
+      },
+      {
+        entry: "Email Address",
+        example: "Example: user@example.jp"
+      },
+      {
+        entry: "School name",
+        example: "Example: T-BAS玉川学園"
+      },
+      {
+        entry: "Subject",
+        example: "Please select.",
+        options: [
+          "Pre-MYP", "MYP", "DP"
+        ]
+      },
+      {
+        entry: "Grade level",
+        example: "Example: ６年生"
+      },
+      {
+        entry: "Type of inquiry.",
+        example: "Please select.",
+        options: [
+          "About lessons.",
+          "About pricing",
+          "About enrollment"
+        ]
+      },
+      {
+        entry: "Inquiry details.",
+        example: "Current grades / consultation details."
+      }
+    ]
   }
 ]
 
@@ -852,29 +1561,63 @@ export const aboutUs = [
       "A", "fter",
       "S", "chool"
     ],
-    textHeading:(
+    textHeading: (
       <>
       T-BAS玉川学園は、子供達に玉川学園の地で
       <HiddenBrSm/>
       最高の放課後を提供したいという思いを込めた塾です。
       </>
     ),
-    textDescription:(
-      <>
-      現在、国内では国際バカロレア認定校が少しずつ増えてきています。 IBは長期的な継続学習が何よりも大切です。毎日の学習をきちんと理解しながらコツコツと積み重ねていくことで、 やがて英語力も含めたDP試験に対応できる大きな力がつきます。そして、学校の成績を出来るだけ高くキープすればするほど大学の推薦入試は有利になります。 また、DPでは理系・文系の両方から６科目を選択する必要があるため、低学年の頃から不得意な科目を作らないようにすることも大切です。
-      <HiddenBrSm/><HiddenBrSm/>
-      T-BASのIBコースのチューター達はIBディプロマを高い点数で取得し、国内や国外の大学受験も成功させています。 IBDPを取得した彼らにしか出来ないサポートが沢山あります。勉強の仕方が分からない、 毎日の学習をしっかり定着させたい、親が教えられず困っている、先取り学習をしたい、DP試験や大学受験対策をしたい、 などなどお困りの事はないでしょうか？お1人お1人のご要望に合ったレッスンをご提案させて頂きますのでどうぞお気軽にご相談下さい。
-      <HiddenBrSm/><HiddenBrSm/>
-      また、一般クラス生のための数学フォローアップコースも併設しました。私は長年に渡る塾講師や某通信教育での数学指導の経験を活かして、 数学で困っているお子様のお力になりたいと思っています。他にも頼もしいチューター達がおりますので、数学が苦手な方や学校の勉強を強化したい方など、基礎力をしっかり着けて自信を持って学習が出来るようにサポートさせて頂きます。
-      <HiddenBrSm/><HiddenBrSm/>
-      小さな塾ですが皆様を心よりお待ちしております。
-      </>
-    ),
     textClosingQuote: (
       <>
       T-BAS玉川学園
-      <HiddenBrSm/>
+      <br/>
       塾長　溝口
+      </>
+    ),
+    textDescription: (
+      <>
+        現在、国内では国際バカロレア認定校が少しずつ増えてきています。 IBは長期的な継続学習が何よりも大切です。毎日の学習をきちんと理解しながらコツコツと積み重ねていくことで、 やがて英語力も含めたDP試験に対応できる大きな力がつきます。そして、学校の成績を出来るだけ高くキープすればするほど大学の推薦入試は有利になります。 また、DPでは理系・文系の両方から６科目を選択する必要があるため、低学年の頃から不得意な科目を作らないようにすることも大切です。
+        <br/><br/>
+        T-BASのIBコースのチューター達はIBディプロマを高い点数で取得し、国内や国外の大学受験も成功させています。 IBDPを取得した彼らにしか出来ないサポートが沢山あります。勉強の仕方が分からない、 毎日の学習をしっかり定着させたい、親が教えられず困っている、先取り学習をしたい、DP試験や大学受験対策をしたい、 などなどお困りの事はないでしょうか？お1人お1人のご要望に合ったレッスンをご提案させて頂きますのでどうぞお気軽にご相談下さい。
+        <br/><br/>
+        また、一般クラス生のための数学フォローアップコースも併設しました。私は長年に渡る塾講師や某通信教育での数学指導の経験を活かして、 数学で困っているお子様のお力になりたいと思っています。他にも頼もしいチューター達がおりますので、数学が苦手な方や学校の勉強を強化したい方など、基礎力をしっかり着けて自信を持って学習が出来るようにサポートさせて頂きます。
+        <br/><br/>
+        小さな塾ですが皆様を心よりお待ちしております。
+      </>
+    )
+  },
+  {
+    heading: "What is T-BAS?",
+    subHeading: [
+      "T", "amagawa",
+      "B", "est",
+      "A", "fter",
+      "S", "chool"
+    ],
+    textClosingQuote: (
+      <>
+      T-BAS Tamagawa Gakuen
+      <br/>
+      Director: Mizoguchi
+      </>
+    ),
+    textHeading:(
+      <>
+      T-BAS Tamagawa Gakuen is a tutoring center dedicated to providing 
+      <HiddenBrSm/>
+      children in the Tamagawa Gakuen area with the best after-school experience
+      </>
+    ),
+    textDescription:(
+      <>
+      Currently, the number of International Baccalaureate (IB) accredited schools is gradually increasing in Japan. The IB emphasizes the importance of long-term continuous learning. By thoroughly understanding daily studies and gradually building upon them, students can develop strong skills that will eventually prepare them for the DP exams, including English proficiency. Additionally, maintaining high grades in school will favorably impact university recommendation admissions. In the DP program, students must select six subjects from both the sciences and humanities, so it is crucial to avoid developing weaknesses in any subjects from a young age.
+      <br/><br/>
+      The tutors in T-BAS's IB course have achieved high scores on the IB Diploma and have successfully gained admission to universities both domestically and internationally. They offer unique support that only those who have obtained the IBDP can provide. If you're unsure how to study, want to solidify daily learning, are facing challenges because parents cannot teach, wish to get ahead in studies, or need assistance preparing for the DP exams or university entrance exams, please do not hesitate to reach out. We will propose lessons tailored to each individual's needs.
+      <br/><br/>
+      We also have a math follow-up course for general class students. Drawing on my extensive experience as a tutor and in mathematics instruction at a certain correspondence education program, I aim to support children who struggle with math. With the help of other capable tutors, we will assist those who find math challenging or wish to strengthen their school studies, ensuring they build a solid foundation and gain confidence in their learning.
+      <br/><br/>
+      Although we are a small tutoring center, we sincerely look forward to welcoming everyone.
       </>
     )
   }

@@ -28,9 +28,11 @@ const NavLinks = tw.div`inline-block flex cursor-pointer`;
  * hocus:bg-primary-700 will apply the bg-primary-700 class on hover or focus
  */
 const NavLink = tw.a`
-  text-lg lg:mx-4 xl:mx-6 my-2 lg:my-0
+  text-sm md:text-base lg:text-base xl:text-lg 2xl:text-xl
+  lg:mx-2 xl:mx-4 2xl:mx-6 my-2 lg:my-0
+  py-2 
   font-semibold tracking-wide transition duration-300
-  py-2 border-b-2 border-transparent 
+  border-b-2 border-transparent 
   text-tbasMain-purple900
   hocus:text-tbasMain-orange
 `;
@@ -39,15 +41,14 @@ const LanguageChangeContainer = tw.div`cursor-pointer w-full m-auto flex justify
 const LanguageChange = tw(NavLink)`text-main-lightBlue flex items-end`
 
 const LogoLink = styled(NavLink)`
-  ${tw`pl-4 pt-4 lg:pl-0 lg:pt-0 cursor-pointer flex items-center font-black border-b-0 text-2xl! ml-0!`};
+  ${tw`pl-4 pt-4 lg:pl-0 lg:pt-0 cursor-pointer flex items-center`};
   img {
-    ${tw`w-64 lg:w-80`}
+    ${tw`w-48 sm:w-64 md:w-80 lg:w-48 xl:w-64 2xl:w-80`}
   }
 `;
 
 const PrimaryLink = tw(NavLink)`
-  lg:mx-0
-  p-4 mb-2
+  lg:mx-0 p-4 lg:mb-2
   rounded-xl bg-tbasMain-purple900 text-gray-100
   hocus:bg-tbasMain-orange hocus:text-gray-200 focus:shadow-outline
   border-b-0
@@ -72,9 +73,10 @@ const LgDesktopNav = tw(DesktopNavLinks)`hidden lg:flex lg:flex-wrap lg:pt-8 lg:
 const DropdownContainer = tw.div`relative`;
 const Dropdown = tw.div`select-none cursor-pointer hover:border-primary-500 transition-colors duration-300`;
 const DropdownParent = tw.div`flex justify-between items-center`;
-const DropdownParentText = tw.div`text-lg my-2 lg:my-0
+const DropdownParentText = tw.div`text-sm md:text-base lg:text-base xl:text-lg 2xl:text-xl 
+my-2 lg:my-0 py-2 
   font-semibold tracking-wide transition duration-300
-  py-2 border-b-2 border-transparent 
+  border-b-2 border-transparent 
   text-tbasMain-purple900
   hocus:text-tbasMain-orange`;
 const DropdownParentToggleIcon = styled(motion.span)`

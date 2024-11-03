@@ -9,10 +9,9 @@ import { ContentWithVerticalPadding as ContainerBase
 } from "assets/styles/TailwindComponents.jsx";
 
 import logo from "assets/tbas-images/logo/TBAS-white-logo.svg";
-
 import { header_footer } from "assets/tbas-data/TBas_Info.jsx";
 
-const NavLinks = tw.div`inline-block cursor-pointer pt-4 text-main-white`;
+const NavLinks = tw.div`hidden md:inline-block cursor-pointer pt-4 text-main-white px-8 sm:px-0`;
 
 const NavLink = tw.a`
   text-sm lg:text-lg mx-2 lg:mx-6 my-2 lg:my-0
@@ -21,14 +20,14 @@ const NavLink = tw.a`
 `;
 
 const Container = tw(ContainerBase)`bg-tbasMain-purple700 text-main-black -mx-8 -mb-8`
-const Content = tw.div`max-w-screen-2xl mx-auto py-16`;
+const Content = tw.div`max-w-screen-2xl mx-auto md:py-16`;
 
-const Row = tw.div`flex items-center justify-center flex-col`
+const Row = tw.div`flex flex-col items-center justify-center`
 
 const LogoContainer = tw.div`flex items-center justify-center md:justify-start`;
-const LogoRow = tw.div`flex items-center justify-center flex-row pb-10`
+const LogoRow = tw.div`flex flex-col md:flex-row items-center justify-center pb-10`
 
-const LogoImageContainer = tw.div`w-2/5 flex items-center justify-center pr-8`;
+const LogoImageContainer = tw.div`md:w-2/5 flex items-center justify-center pr-8`;
 const LogoLink = styled(NavLink)`
   ${tw`cursor-pointer flex items-center font-black border-b-0 text-2xl! ml-0!`};
 
@@ -36,8 +35,8 @@ const LogoLink = styled(NavLink)`
     ${tw`w-80 lg:w-96`}
   }
 `;
-const LogoTextContainer = tw.div`flex flex-col w-3/5`;
-const LogoText = tw.h5`pl-4 pt-6 text-lg lg:text-xl font-roboto text-main-white tracking-[.15em] font-medium`;
+const LogoTextContainer = tw.div`flex flex-col w-full md:w-3/5`;
+const LogoText = tw.h5`md:pl-4 pt-6 text-lg lg:text-xl font-roboto text-main-white tracking-[.15em] font-medium`;
 const TopLogoText = tw(LogoText)`pt-0`
 const LogoLightText = tw(LogoText)`pt-2 font-light text-base lg:text-lg`;
 
@@ -110,4 +109,33 @@ export default function Footer(props) {
       </Content>
     </Container>
   );
+};
+
+/* The below code is for generating dynamic break points for navbar.
+ * Using this you can specify if you want to switch
+ * to the toggleable mobile navbar at "sm", "md" or "lg" or "xl" above using the collapseBreakpointClass prop
+ * Its written like this because we are using macros and we can not insert dynamic variables in macros
+ */
+
+const collapseBreakPointCssMap = {
+  sm: {
+    mobileNavLinks: tw`sm:hidden`,
+    desktopNavLinks: tw`sm:flex`,
+    mobileNavLinksContainer: tw`sm:hidden`
+  },
+  md: {
+    mobileNavLinks: tw`md:hidden`,
+    desktopNavLinks: tw`md:flex`,
+    mobileNavLinksContainer: tw`md:hidden`
+  },
+  lg: {
+    mobileNavLinks: tw`lg:hidden`,
+    desktopNavLinks: tw`lg:flex`,
+    mobileNavLinksContainer: tw`lg:hidden`
+  },
+  xl: {
+    mobileNavLinks: tw`lg:hidden`,
+    desktopNavLinks: tw`lg:flex`,
+    mobileNavLinksContainer: tw`lg:hidden`
+  }
 };

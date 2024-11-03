@@ -4,8 +4,8 @@ import AnimationRevealPage from "helpers/AnimationRevealPage.js";
 
 import AboutUsComponent from 'newComponents/AboutUs/AboutUs.jsx';
 
-import Header from "newComponents/headers/Header.jsx";
-import Footer from "newComponents/footer/Footer.jsx";
+import Header from "newComponents/Header/Header.jsx";
+import Footer from "newComponents/Footer/Footer.jsx";
 
 export default function AboutPage(props){
   

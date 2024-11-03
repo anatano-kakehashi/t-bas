@@ -17,7 +17,7 @@ import background from "assets/tbas-images/background/laptop.jpeg";
 const Container = styled(ContainerTemplate)(props => [
   `background-image: url("${props.imageSrc}");`,
   tw`px-8 bg-no-repeat bg-cover bg-center content-center rounded-xl
-  w-full h-112`
+  w-full h-56 md:h-112`
 ]);
 const HeroContainer = tw.div`z-20 relative py-6 lg:py-0 mx-auto h-full flex flex-col`;
 const Content = tw.div`py-8 flex flex-1 justify-center items-center`;

@@ -18,17 +18,17 @@ import { ReactComponent as CheckIcon } from "feather-icons/dist/icons/check.svg"
 import { ReactComponent as ArrowIcon } from "feather-icons/dist/icons/arrow-right-circle.svg";
 
 const Container = styled(ContentFormatted2)(({ isOnline }) => [
-  tw`relative py-16`,
-  isOnline && tw`w-1/2`
+  tw`relative py-8 md:py-16`,
+  isOnline && tw`md:w-1/2`
 ]);
 
 const HeaderContainer = tw.div`mt-10 w-full flex flex-col items-center`;
 const MainHeading = tw(MainHeadingTemplate)`w-full tracking-widest text-center text-tbasMain-purple900`;
 
-const PlansContainer = tw.div`flex flex-col lg:flex-row justify-center items-center lg:items-stretch relative space-x-10`;
+const PlansContainer = tw.div`flex flex-col md:flex-row justify-center items-center md:items-stretch relative md:space-x-10`;
 
 const Plan = styled.div(({ item }) => [
-  tw`flex flex-col w-full px-8 pt-2 mt-16 
+  tw`flex flex-col w-4/5 md:w-full h-auto mx-8 md:mx-0 px-8 pt-2 mt-16 
   text-center border-[5px] rounded-2xl shadow relative 
   text-main-black bg-white`,
   item === 0 && tw`border-tbasMain-orange`,
@@ -55,10 +55,10 @@ const PlanFeatures = styled.div`
 const FeatureTextContainer = tw.div`flex flex-row`
 const FeatureText = tw(SectionDescriptionBase)`font-light text-main-black w-full text-left`
 
-const PlanAction = tw.div`flex flex-row pt-6 px-32`;
-const ButtonContainer = tw.div`w-1/2 p-6`
+const PlanAction = tw.div`flex flex-row items-center justify-center pt-6 md:px-32`;
+const ButtonContainer = tw.div`md:w-1/2 p-2 md:p-6`
 const BuyNowButton = styled(PrimaryButtonBase)`
-  ${tw`bg-tbasMain-gray text-tbasMain-purple900 w-full rounded-lg text-left tracking-wider py-10 px-12 relative 
+  ${tw`bg-tbasMain-gray text-tbasMain-purple900 w-full rounded-lg text-left tracking-wider py-10 mr-8 md:mr-0  md:px-4 lg:px-12 relative 
   hover:shadow-xl transform hocus:translate-x-px hocus:-translate-y-px focus:shadow-outline`}
 `;
 
@@ -105,13 +105,13 @@ export default function CoursePlans (props){
           <ButtonContainer>
             <BuyNowButton onClick={() => navigate(currNavPath + "inPerson")}>
               {currInfo.Button1}
-              <ArrowIcon tw="absolute right-0 w-6 h-6 inline mr-12" />
+              <ArrowIcon tw="absolute right-0 w-6 h-6 inline mr-4 sm:mr-8 lg:mr-12" />
             </BuyNowButton>
           </ButtonContainer>
           <ButtonContainer>
             <BuyNowButton onClick={() => navigate(currNavPath + "online")}>
               {currInfo.Button2}
-              <ArrowIcon tw="absolute right-0 w-6 h-6 inline mr-12" />
+              <ArrowIcon tw="absolute right-0 w-6 h-6 inline mr-4 sm:mr-8 lg:mr-12" />
             </BuyNowButton>
           </ButtonContainer>
         </PlanAction>

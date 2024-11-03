@@ -31,9 +31,9 @@ border-l-[50px] border-l-transparent
 border-t-[75px] border-white
 border-r-[50px] border-r-transparent`;
 
-const Row = tw(ContentFormatted)`relative flex flex-row px-12 my-12
-h-128`;
-const ImageColumn = tw.div`w-1/2 h-full mx-20
+const Row = tw(ContentFormatted)`relative flex flex-row lg:px-12 my-12
+h-64 md:h-80 lg:h-112 xl:h-128`;
+const ImageColumn = tw.div`w-1/2 h-full md:mx-8 lg:mx-16 xl:mx-20
 rounded-full overflow-hidden 
 border-2 border-black`;
 
@@ -42,12 +42,20 @@ const Image = styled.div(props => [
   tw`bg-cover bg-center object-center w-full h-full`
 ]);
 
-const TextBoxContainer = tw.div`bg-tbasMain-purple900 text-main-white w-1/6 h-1/6 p-4 absolute rounded-xl`;
-const CenterContainer = tw(TextBoxContainer)`top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-1/5 h-[26%]`;
-const LeftTopContainer = tw(TextBoxContainer)`top-0 left-0 w-1/8 h-3/16`;
-const LeftBotContainer = tw(TextBoxContainer)`bottom-0 left-0 w-1/5 h-1/5`;
-const RightTopContainer = tw(TextBoxContainer)`top-0 right-0 transform -translate-x-1 -translate-y-1 w-1/5 h-3/16`;
-const RightBotContainer = tw(TextBoxContainer)`bottom-0 right-0 transform -translate-x-1 -translate-y-1 w-1/5 h-[26%]`;
+const TextBoxContainer = tw.div`bg-tbasMain-purple900 text-main-white p-4 absolute rounded-xl transform`;
+const CenterContainer = tw(TextBoxContainer)`top-1/2 left-1/2 
+-translate-x-1/2 -translate-y-1/2`;
+const LeftTopContainer = tw(TextBoxContainer)`top-0 left-0 
+-translate-y-16
+md:translate-x-0 md:translate-y-0`;
+const LeftBotContainer = tw(TextBoxContainer)`bottom-0 left-0 translate-y-16
+md:translate-x-0 md:translate-y-0`;
+const RightTopContainer = tw(TextBoxContainer)`top-0 right-0 
+-translate-y-16
+md:-translate-x-1 md:-translate-y-1`;
+const RightBotContainer = tw(TextBoxContainer)`bottom-0 right-0 
+translate-y-16
+md:-translate-x-1 md:-translate-y-1`;
 const TextBox = tw(MainParagraphTemplate)`text-center font-extrabold`;
 
 var currInfo = home_concerns[0];
@@ -58,11 +66,19 @@ export default function Concerns(props) {
   return (
     <Container tw="pt-12">
       <HeadingInfoContainer>
+        {props.language === "ENG"
+        ?
+        <HeadingTitle tw="pl-8 sm:pl-0">      
+          {currInfo.Heading[0]}
+          <HeadingRedTitle>{currInfo.Heading[1]}</HeadingRedTitle>
+        </HeadingTitle>
+        :
         <HeadingTitle>      
           {currInfo.Heading[0]}
           <HeadingRedTitle>{currInfo.Heading[1]}</HeadingRedTitle>
           {currInfo.Heading[2]}
         </HeadingTitle>
+        }
       </HeadingInfoContainer>
       <TriangleContainer>
         <Triangle />
